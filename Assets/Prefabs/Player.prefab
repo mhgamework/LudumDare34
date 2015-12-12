@@ -1366,6 +1366,7 @@ GameObject:
   - 114: {fileID: 11493932}
   - 114: {fileID: 11494464}
   - 114: {fileID: 11468768}
+  - 114: {fileID: 11442120}
   m_Layer: 0
   m_Name: ThirdPersonController
   m_TagString: Untagged
@@ -4012,6 +4013,18 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11442120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 334633ecfab497d4098dd82bb3f6d337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TeleportTransform: {fileID: 457560}
 --- !u!114 &11443310
 MonoBehaviour:
   m_ObjectHideFlags: 1
