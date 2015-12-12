@@ -13,51 +13,59 @@ public class BendAroundPoint : MonoBehaviour
     {
 
         transform.position += new Vector3(1, 0, 0) * CircleRadius;
+     
+        foreach (var filter in GetComponentsInChildren<MeshFilter>())
+        {
+            var mesh = filter.mesh;
+
+
+
+            var verts = mesh.vertices
+                .Select(v =>
+                {
+                    var vWorld = filter.transform.TransformPoint(v);
+                    var vBendWorld = bendVertexWorldSpace(vWorld);
+                    return vBendWorld;
+                }
+                ).ToList();
+
+            mesh.SetVertices(verts);
+        }
+
         foreach (var b in GetComponentsInChildren<BendTransform>())
         {
-            bendTransform(b);
+            bendTransform(b.transform);
         }
-        //foreach (var filter in GetComponentsInChildren<MeshFilter>())
-        //{
-        //    var mesh = filter.mesh;
 
 
+        foreach (var filter in GetComponentsInChildren<MeshFilter>())
+        {
+            //bendTransform(filter.transform);
+            var mesh = filter.mesh;
 
-            //    var verts = mesh.vertices
-            //        .Select(v =>
-            //        {
-            //            var vWorld = filter.transform.TransformPoint(v);
-            //            var vBendWorld = bendVertexWorldSpace(vWorld);
-            //            return vBendWorld;
-            //        }
-            //        ).ToList();
-
-            //    bendTransform(filter.transform);
-
-
-            //    verts = verts
-            //    .Select(v =>
-            //    {
-            //        return filter.transform.InverseTransformPoint(v);
-            //    }
-            //    ).ToList();
+            var verts = mesh.vertices
+            .Select(v =>
+            {
+                return filter.transform.InverseTransformPoint(v);
+            }
+            ).ToList();
 
 
 
 
-            //    //verts = verts.Select()
+            //verts = verts.Select()
 
 
 
-            //    mesh.SetVertices(verts);
+            mesh.SetVertices(verts);
 
-            //    mesh.RecalculateNormals();
-            //    mesh.RecalculateBounds();
+            mesh.RecalculateNormals();
+            mesh.RecalculateBounds();
 
 
-            //    var collider = filter.GetComponent<MeshCollider>();
-            //    if (collider) collider.sharedMesh = mesh;
-            //}
+            var collider = filter.GetComponent<MeshCollider>();
+            if (collider) collider.sharedMesh = mesh;
+        }
 
 
 

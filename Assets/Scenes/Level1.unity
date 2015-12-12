@@ -124,14 +124,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 152628, guid: c812ae7d13df7e94cbf42b5635691e1e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5453286, guid: c812ae7d13df7e94cbf42b5635691e1e, type: 2}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c812ae7d13df7e94cbf42b5635691e1e, type: 2}
   m_IsPrefabParent: 0
@@ -845,10 +837,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416418, guid: 23df96f437e26954095f9193a917f99f, type: 2}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 148146, guid: 23df96f437e26954095f9193a917f99f, type: 2}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2930,10 +2918,6 @@ Prefab:
     - target: {fileID: 169932, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
       propertyPath: m_Name
       value: WorldBlock (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 169932, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
