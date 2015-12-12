@@ -7,57 +7,69 @@ public class BendAroundPoint : MonoBehaviour
 
     public float CircleCircumference = 36;
 
+    private float CircleRadius { get { return CircleCircumference / 2 / Mathf.PI; } }
     // Use this for initialization
     void Start()
     {
 
-        foreach (var filter in GetComponentsInChildren<MeshFilter>())
+        transform.position += new Vector3(1, 0, 0) * CircleRadius;
+        foreach (var b in GetComponentsInChildren<BendTransform>())
         {
-            var mesh = filter.mesh;
-
-
-
-            var verts = mesh.vertices
-                .Select(v =>
-                {
-                    var vWorld = filter.transform.TransformPoint(v);
-                    var vBendWorld = bendVertexWorldSpace(vWorld);
-                    return vBendWorld;
-                }
-                ).ToList();
-
-            filter.transform.Rotate(Vector3.up, -Mathf.Rad2Deg * CalculateAngle(filter.transform.position));
-
-            var originTransformedW = bendVertexWorldSpace(filter.transform.position);
-
-            filter.transform.position = originTransformedW;
-
-
-            verts = verts
-            .Select(v =>
-            {
-                return filter.transform.InverseTransformPoint(v);
-            }
-            ).ToList();
-
-
-
-
-            //verts = verts.Select()
-
-
-
-            mesh.SetVertices(verts);
-
-            mesh.RecalculateNormals();
-            mesh.RecalculateBounds();
-
-
-            var collider = filter.GetComponent<MeshCollider>();
-            if (collider) collider.sharedMesh = mesh;
+            bendTransform(b);
         }
+        //foreach (var filter in GetComponentsInChildren<MeshFilter>())
+        //{
+        //    var mesh = filter.mesh;
 
 
+
+            //    var verts = mesh.vertices
+            //        .Select(v =>
+            //        {
+            //            var vWorld = filter.transform.TransformPoint(v);
+            //            var vBendWorld = bendVertexWorldSpace(vWorld);
+            //            return vBendWorld;
+            //        }
+            //        ).ToList();
+
+            //    bendTransform(filter.transform);
+
+
+            //    verts = verts
+            //    .Select(v =>
+            //    {
+            //        return filter.transform.InverseTransformPoint(v);
+            //    }
+            //    ).ToList();
+
+
+
+
+            //    //verts = verts.Select()
+
+
+
+            //    mesh.SetVertices(verts);
+
+            //    mesh.RecalculateNormals();
+            //    mesh.RecalculateBounds();
+
+
+            //    var collider = filter.GetComponent<MeshCollider>();
+            //    if (collider) collider.sharedMesh = mesh;
+            //}
+
+
+
+    }
+
+    private void bendTransform(Transform t)
+    {
+        t.Rotate(Vector3.up, -Mathf.Rad2Deg * CalculateAngle(t.position));
+
+        var originTransformedW = bendVertexWorldSpace(t.position);
+
+        t.position = originTransformedW;
     }
 
     /*private Vector3 bendVertex(Vector3 v, Transform trans)
@@ -78,7 +90,7 @@ public class BendAroundPoint : MonoBehaviour
     private Vector3 bendVertexWorldSpace(Vector3 vWorld)
     {
 
-        var radius = vWorld.x;
+        var radius = vWorld.x;//+ CircleRadius;
         var angle = CalculateAngle(vWorld);
 
         return new Vector3(radius * Mathf.Cos(angle), vWorld.y, radius * Mathf.Sin(angle));

@@ -26,6 +26,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 416418}
   - 114: {fileID: 11496836}
+  - 114: {fileID: 11409188}
+  - 114: {fileID: 11499464}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -94,6 +96,7 @@ GameObject:
   - 4: {fileID: 483914}
   - 33: {fileID: 3313786}
   - 23: {fileID: 2348648}
+  - 64: {fileID: 6472090}
   m_Layer: 0
   m_Name: PlatformBase
   m_TagString: Untagged
@@ -132,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 148146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.2394333, y: -0.3668158, z: 0.4394803}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 483914}
@@ -343,6 +346,35 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162416}
   m_Mesh: {fileID: 4300004, guid: cf4c0ee543ef28641b7bb64a354f86ac, type: 3}
+--- !u!64 &6472090
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 171570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: cf4c0ee543ef28641b7bb64a354f86ac, type: 3}
+--- !u!114 &11409188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88182ca6872cf3441b77692016af83d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RelativeMinHeight: 0
+  RelativeMaxHeight: 2
+  MoveSpeed: 1
+  AutoMoving: 1
+  AutoMovingDirection: 1
+  AutoMovingWaitTime: 1
 --- !u!114 &11496836
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,6 +394,19 @@ MonoBehaviour:
   AnimationTime: 3
   EaseType_Out: 11
   EaseType_In: 11
+--- !u!114 &11499464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b313311e110af5b4d9145213b7503168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapSize: 1
+  Offset: {x: 0, y: 0, z: 0.5}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
