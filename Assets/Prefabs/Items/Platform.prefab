@@ -25,6 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 416418}
+  - 114: {fileID: 11496836}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -342,6 +343,25 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162416}
   m_Mesh: {fileID: 4300004, guid: cf4c0ee543ef28641b7bb64a354f86ac, type: 3}
+--- !u!114 &11496836
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccf08d3786b6c854dbe7fb77ec0a0c29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CylinderTransforms:
+  - {fileID: 459710}
+  - {fileID: 400398}
+  - {fileID: 400542}
+  - {fileID: 495490}
+  AnimationTime: 3
+  EaseType_Out: 11
+  EaseType_In: 11
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
