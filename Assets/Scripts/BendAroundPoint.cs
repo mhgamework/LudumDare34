@@ -12,7 +12,7 @@ public class BendAroundPoint : MonoBehaviour
     void Start()
     {
 
-        transform.position += new Vector3(1, 0, 0) * CircleRadius;
+        transform.position = new Vector3(1, 0, 0) * CircleRadius;
      
         foreach (var filter in GetComponentsInChildren<MeshFilter>())
         {
