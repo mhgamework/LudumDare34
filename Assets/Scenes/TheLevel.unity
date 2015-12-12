@@ -1737,6 +1737,56 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &423245223
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1085308695}
+    m_Modifications:
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_RootOrder
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 136704, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+      propertyPath: m_Name
+      value: Box (131)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &423245224 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 455856, guid: f42cf68069c9cc841a34aaf38b4469b8, type: 2}
+  m_PrefabInternal: {fileID: 423245223}
 --- !u!1001 &461159257
 Prefab:
   m_ObjectHideFlags: 0
@@ -4022,7 +4072,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442822, guid: 1decaff895c42924eb1c0970d981373b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 12.65
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 442822, guid: 1decaff895c42924eb1c0970d981373b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4067,6 +4117,14 @@ Prefab:
     - target: {fileID: 444084, guid: 1decaff895c42924eb1c0970d981373b, type: 2}
       propertyPath: m_LocalPosition.y
       value: 2.7399998
+      objectReference: {fileID: 0}
+    - target: {fileID: 9575918, guid: 1decaff895c42924eb1c0970d981373b, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d7d46a8ccdc5a4946a5459eeacb61ce7, type: 2}
+    - target: {fileID: 11493932, guid: 1decaff895c42924eb1c0970d981373b, type: 2}
+      propertyPath: m_MoveSpeedMultiplier
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1decaff895c42924eb1c0970d981373b, type: 2}
@@ -5295,6 +5353,7 @@ Transform:
   - {fileID: 662472315}
   - {fileID: 1558579469}
   - {fileID: 1947931328}
+  - {fileID: 423245224}
   m_Father: {fileID: 1910197591}
   m_RootOrder: 1
 --- !u!4 &1093155564 stripped
@@ -5959,7 +6018,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TheCamera: {fileID: 1210058426}
   Colors:
-  - Height: 1
+  - Height: 0
     Color: {r: 1, g: 0.7526069, b: 0.528, a: 0.019607844}
   - Height: 3
     Color: {r: 1, g: 0.904086, b: 0.597, a: 0.019607844}
@@ -5967,6 +6026,14 @@ MonoBehaviour:
     Color: {r: 0.84000003, g: 1, b: 0.99136, a: 0.019607844}
   - Height: 7
     Color: {r: 0.84000003, g: 1, b: 0.88384, a: 0.019607844}
+  - Height: 8
+    Color: {r: 0.84000003, g: 1, b: 0.88384, a: 0.019607844}
+  - Height: 12
+    Color: {r: 0.20715201, g: 0.25838873, b: 0.428, a: 0.019607844}
+  - Height: 14
+    Color: {r: 0.20715201, g: 0.25838873, b: 0.428, a: 0.019607844}
+  - Height: 17
+    Color: {r: 0.080344, g: 0.10021618, b: 0.166, a: 0.019607844}
 --- !u!1001 &1216307056
 Prefab:
   m_ObjectHideFlags: 0
