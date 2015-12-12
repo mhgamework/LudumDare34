@@ -28,6 +28,7 @@ GameObject:
   - 114: {fileID: 11499010}
   - 114: {fileID: 11448066}
   - 114: {fileID: 11451336}
+  - 65: {fileID: 6510338}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -124,6 +125,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 198390}
   m_Mesh: {fileID: 4300000, guid: 1474a704c446c2b4b9ec05e3a0f1d268, type: 3}
+--- !u!65 &6510338
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.79, z: 1}
+  m_Center: {x: 0, y: 0.46, z: 0}
 --- !u!114 &11448066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -137,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   TeleportingActive: 1
+  ChargeTime: 2
+  meshRenderer: {fileID: 2396770}
 --- !u!114 &11451336
 MonoBehaviour:
   m_ObjectHideFlags: 1
