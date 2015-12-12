@@ -378,14 +378,6 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 606884414}
-    - target: {fileID: 11448066, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
-      propertyPath: particles
-      value: 
-      objectReference: {fileID: 899107289}
-    - target: {fileID: 11448066, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
-      propertyPath: meshRenderer
-      value: 
-      objectReference: {fileID: 661227434}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
   m_IsPrefabParent: 0
@@ -1071,26 +1063,6 @@ Prefab:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1104037634}
-    - target: {fileID: 19886170, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
-      propertyPath: EmissionModule.rate.scalar
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 19886170, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
-      propertyPath: ShapeModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19886170, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
-      propertyPath: EmissionModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11448066, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
-      propertyPath: particles
-      value: 
-      objectReference: {fileID: 1238066411}
-    - target: {fileID: 11448066, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
-      propertyPath: meshRenderer
-      value: 
-      objectReference: {fileID: 823709425}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1ab47cfe95a00e24ca69a281fdaf2c96, type: 2}
   m_IsPrefabParent: 0
@@ -1270,11 +1242,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 486894, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
   m_PrefabInternal: {fileID: 627506826}
---- !u!23 &661227434 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2396770, guid: 1ab47cfe95a00e24ca69a281fdaf2c96,
-    type: 2}
-  m_PrefabInternal: {fileID: 216633373}
 --- !u!1001 &674492174
 Prefab:
   m_ObjectHideFlags: 0
@@ -1471,11 +1438,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 486894, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
   m_PrefabInternal: {fileID: 805738076}
---- !u!23 &823709425 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2396770, guid: 1ab47cfe95a00e24ca69a281fdaf2c96,
-    type: 2}
-  m_PrefabInternal: {fileID: 606884409}
 --- !u!1001 &831404673
 Prefab:
   m_ObjectHideFlags: 0
@@ -1746,11 +1708,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 486894, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
   m_PrefabInternal: {fileID: 1664049572}
---- !u!198 &899107289 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 19886170, guid: 1ab47cfe95a00e24ca69a281fdaf2c96,
-    type: 2}
-  m_PrefabInternal: {fileID: 216633373}
 --- !u!4 &997784548 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486894, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
@@ -2281,11 +2238,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}
   m_IsPrefabParent: 0
---- !u!198 &1238066411 stripped
-ParticleSystem:
-  m_PrefabParentObject: {fileID: 19886170, guid: 1ab47cfe95a00e24ca69a281fdaf2c96,
-    type: 2}
-  m_PrefabInternal: {fileID: 606884409}
 --- !u!4 &1245511532 stripped
 Transform:
   m_PrefabParentObject: {fileID: 486894, guid: aa7ed6a96edc927449b67fdf54753590, type: 2}

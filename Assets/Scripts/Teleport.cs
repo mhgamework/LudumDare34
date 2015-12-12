@@ -12,6 +12,7 @@ public class Teleport : MonoBehaviour
     private float chargeAmount = 0;
 
     public MeshRenderer meshRenderer;
+    public ParticleSystem particleSystem;
 
     private Color beamStartColor;
     // Use this for initialization
@@ -24,6 +25,18 @@ public class Teleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!TeleportingActive)
+        {
+            chargeAmount = 0;
+            particleSystem.Stop();
+
+        }
+        else
+        {
+            if (!particleSystem.isPlaying) particleSystem.Play();
+        }
+
+
         meshRenderer.materials[1].color = Color.Lerp(beamStartColor, Color.red, chargeAmount / ChargeTime);
 
 
