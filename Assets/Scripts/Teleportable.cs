@@ -4,7 +4,7 @@ using System.Collections;
 public class Teleportable : MonoBehaviour
 {
 
-    public Transform TeleportTransform;
+    public PlayerControl Player;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,7 @@ public class Teleportable : MonoBehaviour
 
     public void TeleportTo(Vector3 pos)
     {
-        TeleportTransform.position = pos;
+        Player.SetPosition(pos);
 
     }
 }

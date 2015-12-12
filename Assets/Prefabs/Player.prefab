@@ -4024,7 +4024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334633ecfab497d4098dd82bb3f6d337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeleportTransform: {fileID: 457560}
+  Player: {fileID: 11494464}
 --- !u!114 &11443310
 MonoBehaviour:
   m_ObjectHideFlags: 1

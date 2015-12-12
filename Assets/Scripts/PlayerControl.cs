@@ -23,6 +23,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private RobotAnimator RobotAnimator = null;
 
+    public void SetPosition(Vector3 position)
+    {
+        transform.position = position;
+        circleRadius = new Vector3(transform.position.x, 0, transform.position.z).magnitude;
+    }
+
     private void Start()
     {
         // get the transform of the main camera
@@ -39,11 +45,7 @@ public class PlayerControl : MonoBehaviour
 
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
-
-
-
-        circleRadius = new Vector3(transform.position.x, 0, transform.position.z).magnitude;
-
+        SetPosition(transform.position);
     }
 
 

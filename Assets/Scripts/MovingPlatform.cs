@@ -15,6 +15,8 @@ public class MovingPlatform : MonoBehaviour
     public float AutoMovingWaitTime = 1;
 
 
+
+
     private float relativeMoveTarget = 0;
 
 
@@ -23,6 +25,16 @@ public class MovingPlatform : MonoBehaviour
 
     private float RelativeYPos
     { get { return transform.position.y - startPos.y; } }
+
+    public void EnableAutoMoving()
+    {
+        AutoMoving = true;
+    }
+
+    public void DisableAutoMoving()
+    {
+        AutoMoving = false;
+    }
 
     // Use this for initialization
     void Start()
@@ -39,7 +51,7 @@ public class MovingPlatform : MonoBehaviour
 
     private IEnumerable<YieldInstruction> doAutoMoving()
     {
-        for (;;)
+        for (; ; )
         {
             if (!AutoMoving)
             {
