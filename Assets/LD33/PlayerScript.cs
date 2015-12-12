@@ -85,18 +85,18 @@ public class PlayerScript : MonoBehaviour
             currentSlowDuration -= Time.deltaTime;
             if (!isInWater)
             {
-                GetComponent<FirstPersonController>().m_RunSpeed = defaultRunningSped *
-                                                               damageSpeedModifier;
-                GetComponent<FirstPersonController>().m_WalkSpeed = defaultWalkingSpeed *
-                                                                    damageSpeedModifier;
+                //GetComponent<FirstPersonController>().m_RunSpeed = defaultRunningSped *
+                //                                               damageSpeedModifier;
+                //GetComponent<FirstPersonController>().m_WalkSpeed = defaultWalkingSpeed *
+                //                                                    damageSpeedModifier;
             }
         }
         else
         {
             if (!isInWater)
             {
-                GetComponent<FirstPersonController>().m_RunSpeed = defaultRunningSped;
-                GetComponent<FirstPersonController>().m_WalkSpeed = defaultWalkingSpeed;
+                //GetComponent<FirstPersonController>().m_RunSpeed = defaultRunningSped;
+                //GetComponent<FirstPersonController>().m_WalkSpeed = defaultWalkingSpeed;
             }
         }
     }
@@ -107,10 +107,10 @@ public class PlayerScript : MonoBehaviour
         {
             //print("applying water debuff.");
 
-            GetComponent<FirstPersonController>().m_RunSpeed = defaultRunningSped *
-                                                               waterSpeedModifier;
-            GetComponent<FirstPersonController>().m_WalkSpeed = defaultWalkingSpeed *
-                                                                waterSpeedModifier;
+            //GetComponent<FirstPersonController>().m_RunSpeed = defaultRunningSped *
+            //                                                   waterSpeedModifier;
+            //GetComponent<FirstPersonController>().m_WalkSpeed = defaultWalkingSpeed *
+            //                                                    waterSpeedModifier;
         }
     }
 
@@ -150,14 +150,14 @@ public class PlayerScript : MonoBehaviour
     public void OnWaterEnter()
     {
         isInWater = true;
-        GetComponent<FirstPersonController>().m_FootstepSounds = wetSteps.ToArray();
+        //GetComponent<FirstPersonController>().m_FootstepSounds = wetSteps.ToArray();
     }
 
     public void OnWaterExit()
     {
         isInWater = false;
         currentSlowDuration = slowDuration;
-        GetComponent<FirstPersonController>().m_FootstepSounds = drySteps.ToArray();
+        //GetComponent<FirstPersonController>().m_FootstepSounds = drySteps.ToArray();
     }
 
     private IEnumerator UpdateCheckPreyDistance()
