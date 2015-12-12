@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TitleScene.unity
+    path: Assets/LD33/Scenes/TitleScene.unity
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/LD33/Scenes/Tutorial.unity
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
+    path: Assets/LD33/Scenes/Level1.unity
   - enabled: 1
-    path: Assets/Scenes/Level2.unity
+    path: Assets/LD33/Scenes/Level2.unity
   - enabled: 1
-    path: Assets/Scenes/Level3.unity
+    path: Assets/LD33/Scenes/Level3.unity
   - enabled: 0
-    path: Assets/Scenes/TestEndGame.unity
+    path: Assets/LD33/Scenes/TestEndGame.unity
