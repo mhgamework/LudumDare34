@@ -6,14 +6,24 @@ public class Grate : MonoBehaviour
 
     public void Open()
     {
+        IsOpen = true;
         StopCoroutine("UpdateMove");
         StartCoroutine("UpdateMove", EndHeightOffset + InitialHeight);
     }
 
     public void Close()
     {
+        IsOpen = false;
         StopCoroutine("UpdateMove");
         StartCoroutine("UpdateMove", InitialHeight);
+    }
+
+    public void ToggleOpenState()
+    {
+        if (IsOpen)
+            Close();
+        else
+            Open();
     }
 
     void Start()
@@ -48,5 +58,7 @@ public class Grate : MonoBehaviour
     private float EndHeightOffset = 2f;
 
     private float InitialHeight;
+
+    private bool IsOpen;
 
 }

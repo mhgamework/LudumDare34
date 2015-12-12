@@ -68,6 +68,10 @@ public class MovingPlatform : MonoBehaviour
                 yield return new WaitForSeconds(AutoMovingWaitTime);
                 relativeMoveTarget = RelativeMinHeight;
             }
+            if (Mathf.Abs(relativeMoveTarget - RelativeYPos) < 0.0001f)
+            {
+                relativeMoveTarget = AutoMovingDirection > 0 ? RelativeMaxHeight : RelativeMinHeight;
+            }
             yield return new WaitForFixedUpdate();
         }
     }
