@@ -64,6 +64,9 @@ public class PlayerControl : MonoBehaviour
             moveDir += -1;
         if (Input.GetKey(KeyCode.RightArrow))
             moveDir += 1;
+        if (Input.GetKey(KeyCode.UpArrow))
+            transform.position += Vector3.up* Time.deltaTime*10;
+
 
         if (RobotAnimator != null)
         {
