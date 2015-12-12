@@ -10,6 +10,9 @@ GameObject:
   - 4: {fileID: 482858}
   - 33: {fileID: 3352374}
   - 23: {fileID: 2344784}
+  - 114: {fileID: 11432624}
+  - 114: {fileID: 11460266}
+  - 64: {fileID: 6415048}
   m_Layer: 0
   m_Name: Stairs
   m_TagString: Untagged
@@ -63,13 +66,53 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 142076}
   m_Mesh: {fileID: 4300000, guid: 6b96cf0cc49a46f439378d1b4b3758c8, type: 3}
+--- !u!64 &6415048
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 4300000, guid: 6b96cf0cc49a46f439378d1b4b3758c8, type: 3}
+--- !u!114 &11432624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9b89c711b925d419dc743d281c78de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11460266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b313311e110af5b4d9145213b7503168, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SnapSize: 1
+  Offset: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: Offset.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 142076}

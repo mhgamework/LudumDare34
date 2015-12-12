@@ -392,7 +392,7 @@ GameObject:
   - 81: {fileID: 8145202}
   - 114: {fileID: 11448664}
   - 114: {fileID: 11443310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CircularSidescrollerCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1365,7 +1365,7 @@ GameObject:
   - 136: {fileID: 13621662}
   - 114: {fileID: 11493932}
   - 114: {fileID: 11494464}
-  - 114: {fileID: 11408136}
+  - 114: {fileID: 11468768}
   m_Layer: 0
   m_Name: ThirdPersonController
   m_TagString: Untagged
@@ -3925,7 +3925,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -4012,18 +4012,6 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
---- !u!114 &11408136
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 168120}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334633ecfab497d4098dd82bb3f6d337, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TeleportTransform: {fileID: 457560}
 --- !u!114 &11443310
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4048,6 +4036,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 222de2fb02f46ac498e7cb8bd8183bd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11468768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77ffcfb8d102e2d4aa71a878705ad039, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &11493932
@@ -4112,9 +4111,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.3
-  m_Height: 1.6
+  m_Height: 1.4
   m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!137 &13711466
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
