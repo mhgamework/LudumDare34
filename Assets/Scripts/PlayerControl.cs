@@ -20,6 +20,9 @@ public class PlayerControl : MonoBehaviour
     public float circleRadius;
     public float circleAngle;
 
+    [SerializeField]
+    private RobotAnimator RobotAnimator = null;
+
     private void Start()
     {
         // get the transform of the main camera
@@ -62,6 +65,13 @@ public class PlayerControl : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
             moveDir += 1;
 
+        if (RobotAnimator != null)
+        {
+            if(moveDir == 0)
+                RobotAnimator.PlayIdle();
+            else
+                RobotAnimator.PlayWalk();
+        }
 
         var pos = transform.position;
         var currentAngle = Mathf.Atan2(pos.z, pos.x);

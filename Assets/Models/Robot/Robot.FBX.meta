@@ -1,0 +1,436 @@
+fileFormatVersion: 2
+guid: f49c4de88621d2f4c99f0b1ac93cc3a0
+timeCreated: 1449926730
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: ArmLeft
+    100002: ArmRight
+    100004: BackPack
+    100006: Body
+    100008: Head
+    100010: LeftEye
+    100012: Legs
+    100014: RightEye
+    100016: //RootNode
+    100018: robot_Head_bone
+    100020: robot_HeadNub_bone
+    100022: robot_Knee_bone
+    100024: robot_KneeNub_bone
+    100026: robot_l_Clav_bone
+    100028: robot_l_ForeArm_bone
+    100030: robot_l_Index1_bone
+    100032: robot_l_Index2_bone
+    100034: robot_l_Index2Nub_bone
+    100036: robot_l_Secundex1_bone
+    100038: robot_l_Secundex2_bone
+    100040: robot_l_Secundex2Nub_bone
+    100042: robot_l_Shoulder_bone
+    100044: robot_l_Thumb1_bone
+    100046: robot_l_Thumb2_bone
+    100048: robot_l_Thumb2Nub_bone
+    100050: robot_l_Wrist_bone
+    100052: robot_Main_Controller
+    100054: robot_Main_Controller 1
+    100056: robot_Neck_bone
+    100058: robot_Pelvis_bone
+    100060: robot_PelvisNub_bone
+    100062: robot_r_Clav_bone
+    100064: robot_r_ForeArm_bone
+    100066: robot_r_Index1_bone
+    100068: robot_r_Index2_bone
+    100070: robot_r_Index2Nub_bone
+    100072: robot_r_Secundex1_bone
+    100074: robot_r_Secundex2_bone
+    100076: robot_r_Secundex2Nub_bone
+    100078: robot_r_Shoulder_bone
+    100080: robot_r_Thumb1_bone
+    100082: robot_r_Thumb2_bone
+    100084: robot_r_Thumb2Nub_bone
+    100086: robot_r_Wrist_bone
+    100088: robot_Spine_bone
+    100090: robot_Thigh_bone
+    100092: robot_Wheel_bone
+    100094: robot_WheelNub_bone
+    400000: ArmLeft
+    400002: ArmRight
+    400004: BackPack
+    400006: Body
+    400008: Head
+    400010: LeftEye
+    400012: Legs
+    400014: RightEye
+    400016: //RootNode
+    400018: robot_Head_bone
+    400020: robot_HeadNub_bone
+    400022: robot_Knee_bone
+    400024: robot_KneeNub_bone
+    400026: robot_l_Clav_bone
+    400028: robot_l_ForeArm_bone
+    400030: robot_l_Index1_bone
+    400032: robot_l_Index2_bone
+    400034: robot_l_Index2Nub_bone
+    400036: robot_l_Secundex1_bone
+    400038: robot_l_Secundex2_bone
+    400040: robot_l_Secundex2Nub_bone
+    400042: robot_l_Shoulder_bone
+    400044: robot_l_Thumb1_bone
+    400046: robot_l_Thumb2_bone
+    400048: robot_l_Thumb2Nub_bone
+    400050: robot_l_Wrist_bone
+    400052: robot_Main_Controller
+    400054: robot_Main_Controller 1
+    400056: robot_Neck_bone
+    400058: robot_Pelvis_bone
+    400060: robot_PelvisNub_bone
+    400062: robot_r_Clav_bone
+    400064: robot_r_ForeArm_bone
+    400066: robot_r_Index1_bone
+    400068: robot_r_Index2_bone
+    400070: robot_r_Index2Nub_bone
+    400072: robot_r_Secundex1_bone
+    400074: robot_r_Secundex2_bone
+    400076: robot_r_Secundex2Nub_bone
+    400078: robot_r_Shoulder_bone
+    400080: robot_r_Thumb1_bone
+    400082: robot_r_Thumb2_bone
+    400084: robot_r_Thumb2Nub_bone
+    400086: robot_r_Wrist_bone
+    400088: robot_Spine_bone
+    400090: robot_Thigh_bone
+    400092: robot_Wheel_bone
+    400094: robot_WheelNub_bone
+    2300000: LeftEye
+    2300002: RightEye
+    3300000: LeftEye
+    3300002: RightEye
+    4300000: Body
+    4300002: ArmRight
+    4300004: Legs
+    4300006: BackPack
+    4300008: ArmLeft
+    4300010: Head
+    4300012: LeftEye
+    4300014: RightEye
+    7400000: Walk
+    7400002: Idle
+    9500000: //RootNode
+    13700000: ArmLeft
+    13700002: ArmRight
+    13700004: BackPack
+    13700006: Body
+    13700008: Head
+    13700010: Legs
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ArmLeft
+        weight: 1
+      - path: ArmRight
+        weight: 1
+      - path: BackPack
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Legs
+        weight: 1
+      - path: robot_Main_Controller
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_PelvisNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone/robot_KneeNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone/robot_KneeNub_bone/robot_Wheel_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone/robot_KneeNub_bone/robot_Wheel_bone/robot_WheelNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Index1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Index1_bone/robot_l_Index2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Index1_bone/robot_l_Index2_bone/robot_l_Index2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Secundex1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Secundex1_bone/robot_l_Secundex2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Secundex1_bone/robot_l_Secundex2_bone/robot_l_Secundex2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Thumb1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Thumb1_bone/robot_l_Thumb2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Thumb1_bone/robot_l_Thumb2_bone/robot_l_Thumb2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone/LeftEye
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone/RightEye
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone/robot_HeadNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Index1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Index1_bone/robot_r_Index2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Index1_bone/robot_r_Index2_bone/robot_r_Index2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Secundex1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Secundex1_bone/robot_r_Secundex2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Secundex1_bone/robot_r_Secundex2_bone/robot_r_Secundex2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Thumb1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Thumb1_bone/robot_r_Thumb2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Thumb1_bone/robot_r_Thumb2_bone/robot_r_Thumb2Nub_bone
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ArmLeft
+        weight: 1
+      - path: ArmRight
+        weight: 1
+      - path: BackPack
+        weight: 1
+      - path: Body
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Legs
+        weight: 1
+      - path: robot_Main_Controller
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_PelvisNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone/robot_KneeNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone/robot_KneeNub_bone/robot_Wheel_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Pelvis_bone/robot_Thigh_bone/robot_Knee_bone/robot_KneeNub_bone/robot_Wheel_bone/robot_WheelNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Index1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Index1_bone/robot_l_Index2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Index1_bone/robot_l_Index2_bone/robot_l_Index2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Secundex1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Secundex1_bone/robot_l_Secundex2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Secundex1_bone/robot_l_Secundex2_bone/robot_l_Secundex2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Thumb1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Thumb1_bone/robot_l_Thumb2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_l_Clav_bone/robot_l_Shoulder_bone/robot_l_ForeArm_bone/robot_l_Wrist_bone/robot_l_Thumb1_bone/robot_l_Thumb2_bone/robot_l_Thumb2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone/LeftEye
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone/RightEye
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_Neck_bone/robot_Head_bone/robot_HeadNub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Index1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Index1_bone/robot_r_Index2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Index1_bone/robot_r_Index2_bone/robot_r_Index2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Secundex1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Secundex1_bone/robot_r_Secundex2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Secundex1_bone/robot_r_Secundex2_bone/robot_r_Secundex2Nub_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Thumb1_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Thumb1_bone/robot_r_Thumb2_bone
+        weight: 1
+      - path: robot_Main_Controller/robot_Main_Controller 1/robot_Spine_bone/robot_r_Clav_bone/robot_r_Shoulder_bone/robot_r_ForeArm_bone/robot_r_Wrist_bone/robot_r_Thumb1_bone/robot_r_Thumb2_bone/robot_r_Thumb2Nub_bone
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.075
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
