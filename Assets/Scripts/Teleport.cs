@@ -15,6 +15,9 @@ public class Teleport : MonoBehaviour
     public ParticleSystem particleSystem;
 
     private Color beamStartColor;
+    private float triggerDelayLeft = 0;
+    private float targetDelayAfterTP = 1;
+
     // Use this for initialization
     private void Start()
     {
@@ -25,6 +28,11 @@ public class Teleport : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (triggerDelayLeft > 0)
+        {
+            triggerDelayLeft -= Time.deltaTime;
+            chargeAmount = 0;
+        }
         if (!TeleportingActive)
         {
             chargeAmount = 0;
@@ -39,12 +47,26 @@ public class Teleport : MonoBehaviour
 
         meshRenderer.materials[1].color = Color.Lerp(beamStartColor, Color.red, chargeAmount / ChargeTime);
 
+        if (chargeAmount < 0.001)
+        {
+            //GetComponent<AudioSource>().Stop();
+
+        }
+        else
+        {
+            
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+
+        }
 
     }
 
     public void FixedUpdate()
     {
-        chargeAmount = Mathf.Clamp(chargeAmount - Time.deltaTime*2, 0, ChargeTime + 0.001f);
+        chargeAmount = Mathf.Clamp(chargeAmount - Time.deltaTime , 0, ChargeTime + 0.001f);
     }
 
     public IEnumerable<YieldInstruction> blip()
@@ -78,6 +100,7 @@ public class Teleport : MonoBehaviour
         var tp = other.GetComponent<Teleportable>();
         if (!tp) return;
         if (tp.InTeleporter) return;
+        GetComponent<AudioSource>().pitch = 1;
         //tp.InTeleporter = true;
         //tp.TeleportTo(Target.transform.position);
     }
@@ -87,17 +110,28 @@ public class Teleport : MonoBehaviour
         var tp = other.GetComponent<Teleportable>();
         if (!tp) return;
         //chargeAmount = 0;
+        if (chargeAmount > 0) // Play in revers, otherwise dont do anything to let sound finish
+            GetComponent<AudioSource>().pitch = -1;
     }
 
     public void OnTriggerStay(Collider other)
     {
         var tp = other.GetComponent<Teleportable>();
         if (!tp) return;
-        chargeAmount += Time.deltaTime*3; // Times two since we decrement at every fixedupdate *2
+        chargeAmount += Time.deltaTime * 2; // Times two since we decrement at every fixedupdate 
 
 
 
         if (chargeAmount > ChargeTime)
+        {
             tp.TeleportTo(Target.transform.position);
+            chargeAmount = 0f;
+            Target.SetDelay(targetDelayAfterTP);
+        }
+    }
+
+    private void SetDelay(float delay)
+    {
+        triggerDelayLeft = delay;
     }
 }
