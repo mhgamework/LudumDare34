@@ -2,13 +2,34 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class EndGameController : MonoBehaviour {
+public class EndGameController : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start ()
-	{
-	    StartCoroutine(doEndGameScript().GetEnumerator());
-	}
+    [SerializeField]
+    private HearthController playerHeart;
+    [SerializeField]
+    private HearthController princessHeart;
+
+    [SerializeField] private PlayerControl player;
+
+    [SerializeField]
+    private Transform curtain;
+    [SerializeField]
+    private float curtainTargetRelativeY;
+    [SerializeField]
+    private float curtainSpeed;
+
+    private float curtainTargetY;
+
+
+    [SerializeField]
+    private float hardcodedTargetPlayerX = -1;
+    // Use this for initialization
+    void Start()
+    {
+        StartCoroutine(doEndGameScript().GetEnumerator());
+        curtainTargetY = curtain.position.y + curtainTargetRelativeY;
+    }
 
     private IEnumerable<YieldInstruction> doEndGameScript()
     {
@@ -21,18 +42,21 @@ public class EndGameController : MonoBehaviour {
                 stepMovePlayerToCenter();
                 yield return null;
             }
+            player.SetAutoMoveDir(0);
 
             while (!isPrincessAtTop()) yield return null;
+            Debug.Log("Hearts");
+            playerHeart.ShowHearts();
 
-            playerHeart.Play();
+            yield return new WaitForSeconds(5);
 
-            yield return new WaitForSeconds(1);
+            princessHeart.ShowHearts();
 
-            princessHeart.Play();
+            yield return new WaitForSeconds(5);
 
-            yield return new WaitForSeconds(3);
+            while (stepCurtain()) { yield return null; }
 
-            while (stepCurtain()) { yield return null;}
+            yield return new WaitForSeconds(4);
 
             for (;;)
             {
@@ -47,42 +71,66 @@ public class EndGameController : MonoBehaviour {
 
     private void stepFadeOutMusic()
     {
-        throw new System.NotImplementedException();
+        //throw new System.NotImplementedException();
     }
 
     private bool stepCurtain()
     {
-        throw new System.NotImplementedException();
+        var pos = curtain.transform.position;
+        var targetY = curtainTargetY;
+
+        if (Mathf.Abs(pos.y - targetY) < 0.001) return false;
+
+
+        var diff = targetY-pos.y  ;
+
+        pos.y += Mathf.Sign(diff)*Mathf.Min(Mathf.Abs(diff), Time.deltaTime*curtainSpeed);
+
+        curtain.transform.position = pos;
+        return true;
+
+
     }
 
 
     private void disableUserInput()
     {
-        throw new System.NotImplementedException();
+        player.DisableUserInput();
     }
 
     private bool isPrincessAtTop()
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     private bool isPlayerAtCenter()
     {
-        throw new System.NotImplementedException();
+        return player.transform.position.x < hardcodedTargetPlayerX; // Hardcoded!
     }
 
     private void stepMovePlayerToCenter()
     {
-        throw new System.NotImplementedException();
+        player.SetAutoMoveDir(1);
+        /*var z = player.transform.position.z;
+        player.SetAutoMoveDir((int)Mathf.Sign(z));*/
     }
 
     private bool isPlayerAtTop()
     {
-        throw new System.NotImplementedException();
+        return playerAtTop;
     }
 
     // Update is called once per frame
-	void Update () {
-	
-	}
+    void Update()
+    {
+
+    }
+
+
+    public void OnPlayerAtTop()
+    {
+        playerAtTop = true;
+    }
+    private bool playerAtTop = false;
+    
 }

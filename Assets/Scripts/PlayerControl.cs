@@ -27,6 +27,10 @@ public class PlayerControl : MonoBehaviour
     private AudioSource rollingAudioSource;
     private bool isMoving = false;
 
+
+    private bool inputEnabled = true;
+    private int autoMoveDir;
+
     public void SetPosition(Vector3 position)
     {
         transform.position = position;
@@ -69,12 +73,19 @@ public class PlayerControl : MonoBehaviour
     private void FixedUpdate()
     {
         var moveDir = 0;
-        if (Input.GetKey(KeyCode.LeftArrow))
-            moveDir += -1;
-        if (Input.GetKey(KeyCode.RightArrow))
-            moveDir += 1;
-        if (Input.GetKey(KeyCode.UpArrow))
-            transform.position += Vector3.up* Time.deltaTime*10;
+
+        if (inputEnabled)
+        {
+            if (Input.GetKey(KeyCode.LeftArrow))
+                moveDir += -1;
+            if (Input.GetKey(KeyCode.RightArrow))
+                moveDir += 1;
+        }
+        else
+            moveDir = autoMoveDir;
+        
+        /*if (Input.GetKey(KeyCode.UpArrow))
+            transform.position += Vector3.up* Time.deltaTime*10;*/
 
 
         if (RobotAnimator != null)
@@ -159,5 +170,16 @@ public class PlayerControl : MonoBehaviour
     private Vector3 angleToPos(float newAngle)
     {
         return circleRadius * new Vector3(Mathf.Cos(newAngle), 0, Mathf.Sin(newAngle));
+    }
+
+
+    public void DisableUserInput()
+    {
+        inputEnabled = false;
+    }
+
+    public void SetAutoMoveDir(int sign)
+    {
+        autoMoveDir = sign;
     }
 }
