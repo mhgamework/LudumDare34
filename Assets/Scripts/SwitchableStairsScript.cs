@@ -28,12 +28,12 @@ public class SwitchableStairsScript : MonoBehaviour
 
         if (Mathf.Abs(diff) > 0.1)
         {
-            if (!audio.isPlaying)
+            if (audio && !audio.isPlaying)
                 audio.Play();
         }
         else
         {
-            if (audio.isPlaying)
+            if (audio &&  audio.isPlaying)
                 audio.Stop();
         }
 
