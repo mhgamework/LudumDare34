@@ -28,6 +28,14 @@ public class CenterStairController : MonoBehaviour
 
     }
 
+    public float GetCurrentHeight()
+    {
+        return CurrentHeight;
+    }
+
+
+    private float CurrentHeight;
+
     private static CenterStairController instance;
     public static CenterStairController Get
     {
@@ -157,6 +165,8 @@ public class CenterStairController : MonoBehaviour
             // material.color = new Color(material.color.r, material.color.g, material.color.b, 1f);
         }
         renderer.materials = new_materials;
+
+        CurrentHeight = renderer.GetComponent<Transform>().position.y;
     }
 
 
@@ -183,4 +193,6 @@ public class CenterStairController : MonoBehaviour
 
     [SerializeField]
     private OrbCountHeightTuple[] OrbStairHeights = null;
+
+
 }
