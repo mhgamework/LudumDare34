@@ -8,6 +8,7 @@ public class MoveableBox : MonoBehaviour
     private float startAngle;
     private Quaternion startRotation;
 
+    private AudioSource audio;
     // Use this for initialization
     void Start()
     {
@@ -17,6 +18,9 @@ public class MoveableBox : MonoBehaviour
 
         startAngle = calcAngle();
         startRotation = transform.localRotation;
+        lastPos = transform.position;
+
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,14 +29,23 @@ public class MoveableBox : MonoBehaviour
 
     }
 
+    private Vector3 lastPos;
     public void FixedUpdate()
     {
+        if ((lastPos - transform.position).magnitude > 0.01)
+        {
+            if (!audio.isPlaying) { audio.Play(); }
+        }
+       /* else
+            audio.Pause();*/
+        lastPos = transform.position;
+
         var angle = calcAngle();
 
-        transform.position = new Vector3(CircleRadius*Mathf.Cos(angle), transform.position.y,
-            CircleRadius*Mathf.Sin(angle));
+        transform.position = new Vector3(CircleRadius * Mathf.Cos(angle), transform.position.y,
+            CircleRadius * Mathf.Sin(angle));
 
-        transform.localRotation = startRotation*Quaternion.AngleAxis(Mathf.Rad2Deg*( startAngle- calcAngle()),Vector3.up);
+        transform.localRotation = startRotation * Quaternion.AngleAxis(Mathf.Rad2Deg * (startAngle - calcAngle()), Vector3.up);
 
 
     }
