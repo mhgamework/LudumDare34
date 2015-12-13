@@ -392,6 +392,7 @@ GameObject:
   - 81: {fileID: 8145202}
   - 114: {fileID: 11448664}
   - 114: {fileID: 11443310}
+  - 114: {fileID: 11454302}
   m_Layer: 9
   m_Name: CircularSidescrollerCamera
   m_TagString: MainCamera
@@ -1367,6 +1368,7 @@ GameObject:
   - 114: {fileID: 11494464}
   - 114: {fileID: 11468768}
   - 114: {fileID: 11442120}
+  - 114: {fileID: 11456928}
   m_Layer: 0
   m_Name: ThirdPersonController
   m_TagString: Untagged
@@ -3797,7 +3799,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179486}
-  m_LocalRotation: {x: 0.5326752, y: 0.070340455, z: 0.83613276, w: -0.110415146}
+  m_LocalRotation: {x: 0.53267515, y: 0.07034045, z: 0.83613265, w: -0.11041513}
   m_LocalPosition: {x: 0.000022271464, y: -0.00006150465, z: 0.026027026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3972,7 +3974,7 @@ Animator:
   m_GameObject: {fileID: 168120}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
-  m_Controller: {fileID: 9100000, guid: e2cf68ff4b1ffda45a77f7307dd789b9, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7d46a8ccdc5a4946a5459eeacb61ce7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -4051,6 +4053,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222de2fb02f46ac498e7cb8bd8183bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11454302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 118316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e10d128ee4d12140940bf23ab2620bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TheCamera: {fileID: 2092204}
+  Colors:
+  - Height: 0
+    Color: {r: 1, g: 0.7526069, b: 0.528, a: 0.019607844}
+  - Height: 3
+    Color: {r: 1, g: 0.904086, b: 0.597, a: 0.019607844}
+  - Height: 5
+    Color: {r: 0.84000003, g: 1, b: 0.99136, a: 0.019607844}
+  - Height: 7
+    Color: {r: 0.84000003, g: 1, b: 0.88384, a: 0.019607844}
+  - Height: 8
+    Color: {r: 0.84000003, g: 1, b: 0.88384, a: 0.019607844}
+  - Height: 12
+    Color: {r: 0.20715201, g: 0.25838873, b: 0.428, a: 0.019607844}
+  - Height: 14
+    Color: {r: 0.20715201, g: 0.25838873, b: 0.428, a: 0.019607844}
+  - Height: 17
+    Color: {r: 0.080344, g: 0.10021618, b: 0.166, a: 0.019607844}
+--- !u!114 &11456928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 168120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7e2ac95e6869140b3e591d5b9c8681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11468768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4078,7 +4120,7 @@ MonoBehaviour:
   m_JumpPower: 6
   m_GravityMultiplier: 2
   m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
+  m_MoveSpeedMultiplier: 0.5
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.3
 --- !u!114 &11494464

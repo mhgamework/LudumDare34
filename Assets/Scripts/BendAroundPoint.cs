@@ -13,9 +13,13 @@ public class BendAroundPoint : MonoBehaviour
     {
 
         transform.position = new Vector3(1, 0, 0) * CircleRadius;
-     
+
         foreach (var filter in GetComponentsInChildren<MeshFilter>())
         {
+            var opt = filter.GetComponent<BendOptions>();
+            if(opt && !opt.BendMesh)
+                continue;
+
             var mesh = filter.mesh;
 
 
@@ -40,6 +44,11 @@ public class BendAroundPoint : MonoBehaviour
 
         foreach (var filter in GetComponentsInChildren<MeshFilter>())
         {
+            var opt = filter.GetComponent<BendOptions>();
+            if (opt && !opt.BendMesh)
+                continue;
+
+
             //bendTransform(filter.transform);
             var mesh = filter.mesh;
 
