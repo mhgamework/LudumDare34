@@ -2,6 +2,7 @@
 using System.Collections;
 
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.CrossPlatformInput;
@@ -23,10 +24,14 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private RobotAnimator RobotAnimator = null;
 
+    private AudioSource rollingAudioSource;
+    private bool isMoving = false;
+
     public void SetPosition(Vector3 position)
     {
         transform.position = position;
         circleRadius = new Vector3(transform.position.x, 0, transform.position.z).magnitude;
+        rollingAudioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -46,6 +51,8 @@ public class PlayerControl : MonoBehaviour
         // get the third person character ( this should never be null due to require component )
         m_Character = GetComponent<ThirdPersonCharacter>();
         SetPosition(transform.position);
+
+        StartCoroutine(rollPlayer().GetEnumerator());
     }
 
 
@@ -95,7 +102,15 @@ public class PlayerControl : MonoBehaviour
         newPos.y = pos.y;
 
         var delta = newPos - pos;
-        if (delta.magnitude < 0.001 || moveDir == 0) delta = new Vector3();
+        if (delta.magnitude < 0.001 || moveDir == 0)
+        {
+            delta = new Vector3();
+            isMoving = false;
+        }
+        else
+        {
+            isMoving = true;
+        }
 
 
         m_Character.Move(delta, false, false);
@@ -126,6 +141,19 @@ public class PlayerControl : MonoBehaviour
         //        // pass all parameters to the character control script
         //        m_Character.Move(m_Move, crouch, m_Jump);
         //        m_Jump = false;
+    }
+
+    private IEnumerable<YieldInstruction> rollPlayer()
+    {
+        for (;;)
+        {
+            if (isMoving && !rollingAudioSource.isPlaying)
+                rollingAudioSource.Play();
+            if (!isMoving)
+                rollingAudioSource.Stop();
+
+            yield return null;
+        }
     }
 
     private Vector3 angleToPos(float newAngle)
