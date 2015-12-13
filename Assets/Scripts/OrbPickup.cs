@@ -9,24 +9,29 @@ public class OrbPickup : MonoBehaviour
         {
             IsCollected = true;
             StartCoroutine("GetCollected");
+            
+            
         }
     }
 
     IEnumerator GetCollected()
     {
+        pickupAudio.Play();
         float target_height = CenterStairController.Get.ConsumeOrb();
 
         var the_transform = GetComponent<Transform>();
         var start = the_transform.position;
         var target = new Vector3(0, target_height, 0);
         var elapsed = 0f;
+        //var audioStart = backgroundAudio.volume;
         while (elapsed < CollectAnimationTime)
         {
+            //backgroundAudio.volume = EasingFunctions.Ease(EaseType, elapsed/CollectAnimationTime, audioStart, 0);
             the_transform.position = EasingFunctions.Ease(EaseType, elapsed / CollectAnimationTime, start, target);
             elapsed += Time.deltaTime;
             yield return null;
         }
-        
+        backgroundAudio.Stop();
         gameObject.SetActive(false);
     }
 
@@ -37,6 +42,11 @@ public class OrbPickup : MonoBehaviour
     private float DriftAnimationTime = 1f;
     [SerializeField]
     private EasingFunctions.TYPE EaseType = EasingFunctions.TYPE.BackInCubic;
+
+    [SerializeField]
+    private AudioSource backgroundAudio;
+    [SerializeField]
+    private AudioSource pickupAudio;
 
     private bool IsCollected;
 }
