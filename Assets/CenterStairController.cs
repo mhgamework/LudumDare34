@@ -129,7 +129,7 @@ public class CenterStairController : MonoBehaviour
             {
                 Consumed.Add(to_consume);
                 StartCoroutine("FadeIn", to_consume);
-                yield return new WaitForSeconds(0.25f);
+                yield return new WaitForSeconds(MinTimeBetweenSpawns);
             }
 
         }
@@ -177,6 +177,8 @@ public class CenterStairController : MonoBehaviour
 
     [SerializeField]
     private float FadeTime = 0.5f;
+
+    [SerializeField] private float MinTimeBetweenSpawns = 0.25f;
     [SerializeField]
     private EasingFunctions.TYPE EaseType = EasingFunctions.TYPE.InOut;
 
