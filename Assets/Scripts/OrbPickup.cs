@@ -5,7 +5,7 @@ public class OrbPickup : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        if (IsCollected || other.GetComponent<OrbCollector>() != null)
+        if (!IsCollected && other.GetComponent<OrbCollector>() != null)
         {
             IsCollected = true;
             StartCoroutine("GetCollected");
@@ -14,10 +14,11 @@ public class OrbPickup : MonoBehaviour
 
     IEnumerator GetCollected()
     {
+        float target_height = CenterStairController.Get.ConsumeOrb();
+
         var the_transform = GetComponent<Transform>();
         var start = the_transform.position;
-        var target = new Vector3(0, start.y, 0);
-
+        var target = new Vector3(0, target_height, 0);
         var elapsed = 0f;
         while (elapsed < CollectAnimationTime)
         {
@@ -25,7 +26,7 @@ public class OrbPickup : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-
+        
         gameObject.SetActive(false);
     }
 
