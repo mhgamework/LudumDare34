@@ -61,11 +61,15 @@ public class MovingPlatform : MonoBehaviour
             if (RelativeYPos - 0.0001f < RelativeMinHeight)
             {
                 yield return new WaitForSeconds(AutoMovingWaitTime);
+                if(!AutoMoving)
+                    continue;
                 relativeMoveTarget = RelativeMaxHeight;
             }
             if (RelativeYPos + 0.0001f > RelativeMaxHeight)
             {
                 yield return new WaitForSeconds(AutoMovingWaitTime);
+                if (!AutoMoving)
+                    continue;
                 relativeMoveTarget = RelativeMinHeight;
             }
             if (Mathf.Abs(relativeMoveTarget - RelativeYPos) < 0.0001f)
