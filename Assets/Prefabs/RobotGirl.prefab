@@ -945,7 +945,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.251492, y: -7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 415466}
@@ -1460,6 +1460,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationController: {fileID: 9527344}
+  CurrentHeight: -7.79
+  AngleOffset: 7.38
+  AngleScale: 1.97
+  PositionOffset: {x: 0, y: 0.79, z: 0}
+  MoveSpeed: 0.3
+  YRotation: -91.81
 --- !u!137 &13700710
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

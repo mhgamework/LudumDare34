@@ -33,7 +33,7 @@ public class CenterStairController : MonoBehaviour
         return CurrentHeight;
     }
 
-
+    [SerializeField]
     private float CurrentHeight;
 
     private static CenterStairController instance;
