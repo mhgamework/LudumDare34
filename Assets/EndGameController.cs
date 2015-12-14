@@ -10,7 +10,8 @@ public class EndGameController : MonoBehaviour
     [SerializeField]
     private HearthController princessHeart;
 
-    [SerializeField] private PlayerControl player;
+    [SerializeField]
+    private PlayerControl player;
     [SerializeField]
     private RobotGirlController princess;
 
@@ -20,6 +21,9 @@ public class EndGameController : MonoBehaviour
     private float curtainTargetRelativeY;
     [SerializeField]
     private float curtainSpeed;
+
+    [SerializeField]
+    private GameObject QuitHelpText = null;
 
     private float curtainTargetY;
 
@@ -54,6 +58,8 @@ public class EndGameController : MonoBehaviour
             while (!isPrincessAtTop()) yield return null;
             Debug.Log("Hearts");
 
+            QuitHelpText.SetActive(false);
+
             yield return new WaitForSeconds(0.5f);
 
 
@@ -69,6 +75,8 @@ public class EndGameController : MonoBehaviour
 
             yield return new WaitForSeconds(4);
 
+            StartCoroutine("UpdateQuitHelpText");
+
             for (;;)
             {
                 stepFadeOutMusic();
@@ -78,6 +86,12 @@ public class EndGameController : MonoBehaviour
 
             }
         }
+    }
+
+    IEnumerator UpdateQuitHelpText()
+    {
+        yield return new WaitForSeconds(2f);
+        QuitHelpText.SetActive(true);
     }
 
     private void stepFadeOutMusic()
@@ -93,9 +107,9 @@ public class EndGameController : MonoBehaviour
         if (Mathf.Abs(pos.y - targetY) < 0.001) return false;
 
 
-        var diff = targetY-pos.y  ;
+        var diff = targetY - pos.y;
 
-        pos.y += Mathf.Sign(diff)*Mathf.Min(Mathf.Abs(diff), Time.deltaTime*curtainSpeed);
+        pos.y += Mathf.Sign(diff) * Mathf.Min(Mathf.Abs(diff), Time.deltaTime * curtainSpeed);
 
         curtain.transform.position = pos;
         return true;
@@ -143,5 +157,5 @@ public class EndGameController : MonoBehaviour
         playerAtTop = true;
     }
     private bool playerAtTop = false;
-    
+
 }
