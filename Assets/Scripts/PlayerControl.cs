@@ -80,17 +80,35 @@ public class PlayerControl : MonoBehaviour
                 moveDir += -1;
             if (Input.GetKey(KeyCode.RightArrow))
                 moveDir += 1;
+
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                foreach (var touch in Input.touches)
+                {
+                    //if (touch.phase == TouchPhase.Began)
+                    {
+                        Vector3 tPos;
+                        //tPos = Input.mousePosition;
+                        tPos = touch.position;
+                        moveDir = (int)Mathf.Sign(Camera.main.ScreenToViewportPoint(tPos).x - 0.5f);
+
+                        //Debug.Log(Camera.main.ScreenToViewportPoint(touch.position));
+                        break;
+                    }
+                }
+            }
+           
         }
         else
             moveDir = autoMoveDir;
-        
+
         /*if (Input.GetKey(KeyCode.UpArrow))
             transform.position += Vector3.up* Time.deltaTime*10;*/
 
 
         if (RobotAnimator != null)
         {
-            if(moveDir == 0)
+            if (moveDir == 0)
                 RobotAnimator.PlayIdle();
             else
                 RobotAnimator.PlayWalk();
