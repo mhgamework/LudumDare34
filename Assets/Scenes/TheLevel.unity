@@ -8958,6 +8958,10 @@ Prefab:
       propertyPath: OnPressurePlateActivated.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
   m_IsPrefabParent: 0
@@ -49525,6 +49529,10 @@ Prefab:
       propertyPath: OnPressurePlateActivated.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
   m_IsPrefabParent: 0
@@ -49726,6 +49734,10 @@ Prefab:
     - target: {fileID: 170624, guid: c86249696b588704d847055800f478bc, type: 2}
       propertyPath: m_Name
       value: PressureButton (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
@@ -52265,6 +52277,10 @@ Prefab:
     - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
       propertyPath: OnPressurePlateDeactivated.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
@@ -58396,6 +58412,10 @@ Prefab:
     - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
       propertyPath: OnPressurePlateActivated.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
@@ -67694,6 +67714,18 @@ Prefab:
     - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
       propertyPath: OnPressurePlateActivated.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8270738, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnActivated
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
@@ -96331,6 +96363,10 @@ Prefab:
       propertyPath: OnPressurePlateActivated.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
   m_IsPrefabParent: 0
@@ -97538,6 +97574,10 @@ Prefab:
     - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
       propertyPath: OnPressurePlateActivated.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}
@@ -101762,6 +101802,10 @@ Prefab:
     - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
       propertyPath: OnPressurePlateActivated.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421574, guid: c86249696b588704d847055800f478bc, type: 2}
+      propertyPath: PlaySoundOnDeactivated
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c86249696b588704d847055800f478bc, type: 2}

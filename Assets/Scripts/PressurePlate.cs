@@ -40,13 +40,13 @@ public class PressurePlate : MonoBehaviour
         {
             CurrentColliders.Add(other);
         }
-        
+
     }
 
     void OnTriggerExit(Collider other)
     {
         CurrentColliders.Remove(other);
-        
+
     }
 
     private void ActivatePressurePlate()
@@ -55,7 +55,7 @@ public class PressurePlate : MonoBehaviour
             OnPressurePlateActivated.Invoke();
 
         var pos = MeshTransform.localPosition;
-        if (Math.Abs(MeshTransform.localPosition.y - (InitialMeshHeight - 0.1f)) > 0.001)
+        if (PlaySoundOnActivated && Math.Abs(MeshTransform.localPosition.y - (InitialMeshHeight - 0.1f)) > 0.001)
             audio.Play();
         MeshTransform.localPosition = new Vector3(pos.x, InitialMeshHeight - 0.1f, pos.z);
     }
@@ -66,10 +66,10 @@ public class PressurePlate : MonoBehaviour
             OnPressurePlateDeactivated.Invoke();
 
         var pos = MeshTransform.localPosition;
-        if (Math.Abs(MeshTransform.localPosition.y - InitialMeshHeight) > 0.001)
+        if (PlaySoundOnDeactivated && Math.Abs(MeshTransform.localPosition.y - InitialMeshHeight) > 0.001)
             audio.Play();
         MeshTransform.localPosition = new Vector3(pos.x, InitialMeshHeight, pos.z);
-        
+
     }
 
     private List<Collider> CurrentColliders = new List<Collider>();
@@ -77,6 +77,11 @@ public class PressurePlate : MonoBehaviour
 
     [SerializeField]
     private Transform MeshTransform = null;
+
+    [SerializeField]
+    private bool PlaySoundOnActivated = true;
+    [SerializeField]
+    private bool PlaySoundOnDeactivated = true;
 
     private float InitialMeshHeight;
 }
