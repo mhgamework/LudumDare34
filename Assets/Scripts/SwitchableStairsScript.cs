@@ -11,9 +11,13 @@ public class SwitchableStairsScript : MonoBehaviour
     public float RelativeTargetY = 0;
     public float SwitchSpeed = 1;
 
+    public bool IsCenterStair = false;
+    private bool OneShot;
+
     public bool AnchorLeft = true;
 
     private AudioSource audio;
+
     // Use this for initialization
     void Start()
     {
@@ -23,6 +27,10 @@ public class SwitchableStairsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (OneShot)
+            return;
+        if (IsCenterStair)
+            OneShot = true;
 
         var diff = RelativeTargetY - RelativeY;
 
@@ -33,7 +41,7 @@ public class SwitchableStairsScript : MonoBehaviour
         }
         else
         {
-            if (audio &&  audio.isPlaying)
+            if (audio && audio.isPlaying)
                 audio.Stop();
         }
 
