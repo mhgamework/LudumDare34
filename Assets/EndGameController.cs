@@ -11,6 +11,8 @@ public class EndGameController : MonoBehaviour
     private HearthController princessHeart;
 
     [SerializeField] private PlayerControl player;
+    [SerializeField]
+    private RobotGirlController princess;
 
     [SerializeField]
     private Transform curtain;
@@ -24,6 +26,11 @@ public class EndGameController : MonoBehaviour
 
     [SerializeField]
     private float hardcodedTargetPlayerX = -1;
+
+    [SerializeField]
+    private float princessTopY = 31.8f;
+
+    private Vector3 PrincessTargetPos = new Vector3();
     // Use this for initialization
     void Start()
     {
@@ -46,6 +53,10 @@ public class EndGameController : MonoBehaviour
 
             while (!isPrincessAtTop()) yield return null;
             Debug.Log("Hearts");
+
+            yield return new WaitForSeconds(0.5f);
+
+
             playerHeart.ShowHearts();
 
             yield return new WaitForSeconds(5);
@@ -100,7 +111,7 @@ public class EndGameController : MonoBehaviour
 
     private bool isPrincessAtTop()
     {
-        return true;
+        return princess.transform.position.y > princessTopY;
     }
 
     private bool isPlayerAtCenter()
