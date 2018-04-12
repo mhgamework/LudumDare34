@@ -14,9 +14,10 @@ public class MovingPlatform : MonoBehaviour
     public int AutoMovingDirection = 1;
     public float AutoMovingWaitTime = 1;
 
-
-
-
+    private float scaledRelativeMinHeight { get { return transform.lossyScale.x * RelativeMinHeight; } }
+    private float scaledRelativeMaxHeight { get { return transform.lossyScale.x * RelativeMaxHeight; } }
+    private float scaledMoveSpeed { get { return transform.lossyScale.x * MoveSpeed; } }
+    
     private float relativeMoveTarget = 0;
 
 
@@ -58,23 +59,23 @@ public class MovingPlatform : MonoBehaviour
                 yield return new WaitForFixedUpdate();
                 continue;
             }
-            if (RelativeYPos - 0.0001f < RelativeMinHeight)
-            {
-                yield return new WaitForSeconds(AutoMovingWaitTime);
-                if(!AutoMoving)
-                    continue;
-                relativeMoveTarget = RelativeMaxHeight;
-            }
-            if (RelativeYPos + 0.0001f > RelativeMaxHeight)
+            if (RelativeYPos - 0.0001f < scaledRelativeMinHeight)
             {
                 yield return new WaitForSeconds(AutoMovingWaitTime);
                 if (!AutoMoving)
                     continue;
-                relativeMoveTarget = RelativeMinHeight;
+                relativeMoveTarget = scaledRelativeMaxHeight;
+            }
+            if (RelativeYPos + 0.0001f > scaledRelativeMaxHeight)
+            {
+                yield return new WaitForSeconds(AutoMovingWaitTime);
+                if (!AutoMoving)
+                    continue;
+                relativeMoveTarget = scaledRelativeMinHeight;
             }
             if (Mathf.Abs(relativeMoveTarget - RelativeYPos) < 0.0001f)
             {
-                relativeMoveTarget = AutoMovingDirection > 0 ? RelativeMaxHeight : RelativeMinHeight;
+                relativeMoveTarget = AutoMovingDirection > 0 ? scaledRelativeMaxHeight : scaledRelativeMinHeight;
             }
             yield return new WaitForFixedUpdate();
         }
@@ -92,14 +93,14 @@ public class MovingPlatform : MonoBehaviour
 
     private void stepToMoveTarget()
     {
-        var min = startPos.y + RelativeMinHeight;
-        var max = startPos.y + RelativeMaxHeight;
+        var min = startPos.y + scaledRelativeMinHeight;
+        var max = startPos.y + scaledRelativeMaxHeight;
 
         var newPos = transform.position;
 
         var moveTarget = relativeMoveTarget + startPos.y;
         var diff = moveTarget - newPos.y;
-        diff = Mathf.Min(Mathf.Abs(diff), Time.deltaTime * MoveSpeed) * Mathf.Sign(diff);
+        diff = Mathf.Min(Mathf.Abs(diff), Time.deltaTime * scaledMoveSpeed) * Mathf.Sign(diff);
 
 
         newPos += Vector3.up * diff;
