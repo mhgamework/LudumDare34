@@ -18,6 +18,10 @@ public class SwitchableStairsScript : MonoBehaviour
 
     private AudioSource audio;
 
+    //private float scaledRelativeMinY { get { return transform.lossyScale.x * RelativeMinY; } }
+    //private float scaledRelativeMaxY { get { return transform.lossyScale.x * RelativeMaxY; } }
+    //private float scaledSwitchSpeed { get { return transform.lossyScale.x * SwitchSpeed; } }
+
     // Use this for initialization
     void Start()
     {
@@ -62,7 +66,10 @@ public class SwitchableStairsScript : MonoBehaviour
             //var angle = Mathf.Atan2(p.z, p.x);
             var factor = 1f / (transform.childCount + 1) * (i + 1);//(angle - startAngle)/angleLength;
             if (!AnchorLeft) factor = 1 - factor;//angleLength - factor;
-            p.y = Mathf.Lerp(0, RelativeY, factor);
+
+
+
+            p.y = Mathf.Lerp(0, RelativeY, factor) * transform.lossyScale.x;
             p.y += +transform.position.y;
 
             child.position = p;
@@ -72,8 +79,10 @@ public class SwitchableStairsScript : MonoBehaviour
 
     public void Toggle()
     {
-        if (RelativeTargetY == RelativeMinY) RelativeTargetY = RelativeMaxY;
-        else if (RelativeTargetY == RelativeMaxY) RelativeTargetY = RelativeMinY;
+        if (RelativeTargetY == RelativeMinY)
+            RelativeTargetY = RelativeMaxY;
+        else if (RelativeTargetY == RelativeMaxY)
+            RelativeTargetY = RelativeMinY;
         else RelativeTargetY = RelativeMinY;
 
     }

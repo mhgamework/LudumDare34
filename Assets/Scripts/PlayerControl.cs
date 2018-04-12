@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +7,6 @@ using UnityStandardAssets.Characters.ThirdPerson;
 using UnityStandardAssets.CrossPlatformInput;
 
 [RequireComponent(typeof(ThirdPersonCharacter))]
-
 public class PlayerControl : MonoBehaviour
 {
     private ThirdPersonCharacter m_Character; // A reference to the ThirdPersonCharacter on the object
@@ -17,6 +15,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 m_Move;
     private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
 
+    public float GravityModifier = 1f;
 
     public float circleRadius;
     public float circleAngle;
@@ -40,6 +39,8 @@ public class PlayerControl : MonoBehaviour
 
     private void Start()
     {
+        Physics.gravity *= GravityModifier;
+
         // get the transform of the main camera
         if (Camera.main != null)
         {
