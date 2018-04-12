@@ -7,7 +7,10 @@ public class BendAroundPoint : MonoBehaviour
 
     public float CircleCircumference = 36;
 
-    private float CircleRadius { get { return CircleCircumference / 2 / Mathf.PI; } }
+    private float scaledCircleCurcumference { get { return transform.lossyScale.x * CircleCircumference; } }
+    private float CircleRadius { get { return scaledCircleCurcumference / 2 / Mathf.PI; } }
+
+
     // Use this for initialization
     void Start()
     {
@@ -17,7 +20,7 @@ public class BendAroundPoint : MonoBehaviour
         foreach (var filter in GetComponentsInChildren<MeshFilter>())
         {
             var opt = filter.GetComponent<BendOptions>();
-            if(opt && !opt.BendMesh)
+            if (opt && !opt.BendMesh)
                 continue;
 
             var mesh = filter.mesh;
@@ -116,14 +119,7 @@ public class BendAroundPoint : MonoBehaviour
 
     private float CalculateAngle(Vector3 vWorld)
     {
-        var angle = vWorld.z / CircleCircumference * Mathf.PI * 2;
+        var angle = vWorld.z / scaledCircleCurcumference * Mathf.PI * 2;
         return angle;
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }
