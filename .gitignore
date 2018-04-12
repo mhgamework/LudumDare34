@@ -10,7 +10,7 @@ Temp
 *.userprefs
 *.exe
 *.apk
-
+.vs/*
 
 build_logs
 
