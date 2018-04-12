@@ -28,7 +28,7 @@ public class RepeatedChildren : MonoBehaviour
     void Update()
     {
         if (Application.isPlaying) return;
-        if (!transform.Cast<Transform>().FirstOrDefault(c => c.name.StartsWith ( "[GEN]")))
+        if (!transform.Cast<Transform>().FirstOrDefault(c => c.name.StartsWith("[GEN]")))
         {
             createChildren();
             return;
@@ -51,6 +51,7 @@ public class RepeatedChildren : MonoBehaviour
             child.name = "[GEN] " + child.name;
             child.transform.SetParent(transform);
             child.transform.localPosition = BaseOffset + RelativeOffset * i;
+            child.transform.localScale = Prefab.transform.localScale;
         }
     }
     public override int GetHashCode()
@@ -58,10 +59,10 @@ public class RepeatedChildren : MonoBehaviour
         unchecked
         {
             int hashCode = base.GetHashCode();
-            hashCode = (hashCode*397) ^ NumRepeat;
-            hashCode = (hashCode*397) ^ (Prefab != null ? Prefab.GetHashCode() : 0);
-            hashCode = (hashCode*397) ^ RelativeOffset.GetHashCode();
-            hashCode = (hashCode*397) ^ BaseOffset.GetHashCode();
+            hashCode = (hashCode * 397) ^ NumRepeat;
+            hashCode = (hashCode * 397) ^ (Prefab != null ? Prefab.GetHashCode() : 0);
+            hashCode = (hashCode * 397) ^ RelativeOffset.GetHashCode();
+            hashCode = (hashCode * 397) ^ BaseOffset.GetHashCode();
             return hashCode;
         }
     }
