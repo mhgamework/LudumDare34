@@ -7,6 +7,7 @@ public static class ExtensionMethodsMatrix4x4
 
     // .. EXENSION_METHODS
 
+        /*
     public static Quaternion GetRotation(this Matrix4x4 matrix)
     {
         Vector3
@@ -25,7 +26,7 @@ public static class ExtensionMethodsMatrix4x4
             MonoBehaviour.print("invalid rotation");
         }
         return Quaternion.identity;
-    }
+    }*/
     
     public static void GetRotation(this Matrix4x4 matrix, ref Quaternion quaternion)
     {
