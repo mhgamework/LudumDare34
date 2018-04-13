@@ -20,14 +20,14 @@ public class OrbPickup : MonoBehaviour
         float target_height = CenterStairController.Get.ConsumeOrb();
 
         var the_transform = GetComponent<Transform>();
-        var start = the_transform.position;
+        var start = the_transform.localPosition;
         var target = new Vector3(0, target_height, 0);
         var elapsed = 0f;
         //var audioStart = backgroundAudio.volume;
         while (elapsed < CollectAnimationTime)
         {
             //backgroundAudio.volume = EasingFunctions.Ease(EaseType, elapsed/CollectAnimationTime, audioStart, 0);
-            the_transform.position = EasingFunctions.Ease(EaseType, elapsed / CollectAnimationTime, start, target);
+            the_transform.localPosition = EasingFunctions.Ease(EaseType, elapsed / CollectAnimationTime, start, target);
             elapsed += Time.deltaTime;
             yield return null;
         }

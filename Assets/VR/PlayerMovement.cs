@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public PlayerControl PlayerControl;
 
     [SerializeField]
-    private int moveDir;
+    private static int moveDir;
 
     void Start()
     {
@@ -27,17 +27,17 @@ public class PlayerMovement : MonoBehaviour
     {
         if (GetDPadPressDown(Controller, EVRButtonId.k_EButton_DPad_Left))
         {
-            if (moveDir == -1)
-                moveDir = 0;
-            else
+            if (moveDir == 0)
                 moveDir = -1;
+            else
+                moveDir = 0;
         }
         else if (GetDPadPressDown(Controller, EVRButtonId.k_EButton_DPad_Right))
         {
-            if (moveDir == 1)
-                moveDir = 0;
-            else
+            if (moveDir == 0)
                 moveDir = 1;
+            else
+                moveDir = 0;
         }
 
         PlayerControl.SetMoveDir(moveDir);

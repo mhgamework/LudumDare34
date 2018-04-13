@@ -6,6 +6,8 @@ using System.Linq;
 
 public class CameraBackgroundColor : MonoBehaviour
 {
+    public bool AffectFog = true;
+
     [Serializable]
     private class HeightColorTuple
     {
@@ -13,15 +15,23 @@ public class CameraBackgroundColor : MonoBehaviour
         public Color Color;
     }
 
+    [SerializeField]
+    private Color currentColor;
+
     void Start()
     {
-        CameraTransform = TheCamera.GetComponent<Transform>();
         ColorsSorted = Colors.OrderBy(e => e.Height).ToList();
+        currentColor = TheCamera.backgroundColor;
     }
 
     void Update()
     {
-        TheCamera.backgroundColor = GetColorFromHeight(CameraTransform.position.y);
+        var color = GetColorFromHeight(ColorTransform.localPosition.y + offset);
+        currentColor = Color.Lerp(currentColor, color, 0.1f);
+
+        TheCamera.backgroundColor = currentColor;
+        if (AffectFog)
+            RenderSettings.fogColor = currentColor * 0.5f;
     }
 
     private Color GetColorFromHeight(float height)
@@ -46,8 +56,11 @@ public class CameraBackgroundColor : MonoBehaviour
 
     [SerializeField]
     private Camera TheCamera = null;
+    [SerializeField]
+    private Transform ColorTransform;
 
-    private Transform CameraTransform;
+    [SerializeField]
+    private float offset = 0f;
 
     [SerializeField]
     private HeightColorTuple[] Colors = null;

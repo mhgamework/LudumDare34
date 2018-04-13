@@ -24,7 +24,7 @@ public class CenterStairController : MonoBehaviour
         if (renderers.Count == 0)
             return 0f;
 
-        return renderers.Last().GetComponent<Transform>().position.y;
+        return renderers.Last().GetComponent<Transform>().localPosition.y;
 
     }
 
@@ -166,7 +166,7 @@ public class CenterStairController : MonoBehaviour
         }
         renderer.materials = new_materials;
 
-        CurrentHeight = renderer.GetComponent<Transform>().position.y;
+        CurrentHeight = renderer.GetComponent<Transform>().localPosition.y;
     }
 
 
