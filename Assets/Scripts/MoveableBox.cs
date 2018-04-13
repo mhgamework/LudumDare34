@@ -18,7 +18,7 @@ public class MoveableBox : MonoBehaviour
 
         startAngle = calcAngle();
         startRotation = transform.localRotation;
-        lastPos = transform.position;
+        lastPos = transform.localPosition;
 
         audio = GetComponent<AudioSource>();
     }

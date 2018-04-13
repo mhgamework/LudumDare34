@@ -28,8 +28,9 @@ public class PlayerControl : MonoBehaviour
 
 
     private bool inputEnabled = true;
-    private int autoMoveDir;
+    private int autoMoveDir = 0;
 
+    [SerializeField]
     private int moveDir;
 
     public void SetPosition(Vector3 position)
@@ -69,12 +70,18 @@ public class PlayerControl : MonoBehaviour
         {
             m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
         }
+
+
+        moveDir = 0;
     }
 
 
-    public void SetMoveDir(int dir)
+    public void SetMoveDir(int sign)
     {
-        moveDir += (int)Mathf.Sign(dir);
+        if (sign == 0)
+            moveDir = 0;
+        else
+            moveDir = (int)Mathf.Sign(sign);
     }
 
     // Fixed update is called in sync with physics
@@ -103,7 +110,7 @@ public class PlayerControl : MonoBehaviour
                     }
                 }
             }
-           
+
         }
         else
             moveDir = autoMoveDir;
@@ -150,8 +157,6 @@ public class PlayerControl : MonoBehaviour
 
         m_Character.Move(delta, false, false);
 
-        moveDir = 0;
-
         //        // read inputs
         //        float h = CrossPlatformInputManager.GetAxis("Horizontal");
         //        float v = CrossPlatformInputManager.GetAxis("Vertical");
@@ -181,7 +186,7 @@ public class PlayerControl : MonoBehaviour
 
     private IEnumerable<YieldInstruction> rollPlayer()
     {
-        for (;;)
+        for (; ; )
         {
             if (isMoving && !rollingAudioSource.isPlaying)
                 rollingAudioSource.Play();
