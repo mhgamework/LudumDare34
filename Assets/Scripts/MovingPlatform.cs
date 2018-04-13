@@ -8,15 +8,11 @@ public class MovingPlatform : MonoBehaviour
     public float RelativeMinHeight;
     public float RelativeMaxHeight = 3;
     public float MoveSpeed = 1;
-
-
+    
     public bool AutoMoving = true;
     public int AutoMovingDirection = 1;
     public float AutoMovingWaitTime = 1;
-
-    private float scaledRelativeMinHeight { get { return transform.lossyScale.x * RelativeMinHeight; } }
-    private float scaledRelativeMaxHeight { get { return transform.lossyScale.x * RelativeMaxHeight; } }
-    private float scaledMoveSpeed { get { return transform.lossyScale.x * MoveSpeed; } }
+    
     
     private float relativeMoveTarget = 0;
 
@@ -24,8 +20,7 @@ public class MovingPlatform : MonoBehaviour
     private Vector3 startPos;
 
 
-    private float RelativeYPos
-    { get { return transform.position.y - startPos.y; } }
+    private float RelativeYPos { get { return transform.localPosition.y - startPos.y; } }
 
     public void EnableAutoMoving()
     {
@@ -40,7 +35,7 @@ public class MovingPlatform : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        startPos = transform.position;
+        startPos = transform.localPosition;
         StartCoroutine(doAutoMoving().GetEnumerator());
     }
 
@@ -59,23 +54,23 @@ public class MovingPlatform : MonoBehaviour
                 yield return new WaitForFixedUpdate();
                 continue;
             }
-            if (RelativeYPos - 0.0001f < scaledRelativeMinHeight)
+            if (RelativeYPos - 0.0001f < RelativeMinHeight)
             {
                 yield return new WaitForSeconds(AutoMovingWaitTime);
                 if (!AutoMoving)
                     continue;
-                relativeMoveTarget = scaledRelativeMaxHeight;
+                relativeMoveTarget = RelativeMaxHeight;
             }
-            if (RelativeYPos + 0.0001f > scaledRelativeMaxHeight)
+            if (RelativeYPos + 0.0001f > RelativeMaxHeight)
             {
                 yield return new WaitForSeconds(AutoMovingWaitTime);
                 if (!AutoMoving)
                     continue;
-                relativeMoveTarget = scaledRelativeMinHeight;
+                relativeMoveTarget = RelativeMinHeight;
             }
             if (Mathf.Abs(relativeMoveTarget - RelativeYPos) < 0.0001f)
             {
-                relativeMoveTarget = AutoMovingDirection > 0 ? scaledRelativeMaxHeight : scaledRelativeMinHeight;
+                relativeMoveTarget = AutoMovingDirection > 0 ? RelativeMaxHeight : RelativeMinHeight;
             }
             yield return new WaitForFixedUpdate();
         }
@@ -93,20 +88,20 @@ public class MovingPlatform : MonoBehaviour
 
     private void stepToMoveTarget()
     {
-        var min = startPos.y + scaledRelativeMinHeight;
-        var max = startPos.y + scaledRelativeMaxHeight;
+        var min = startPos.y + RelativeMinHeight;
+        var max = startPos.y + RelativeMaxHeight;
 
-        var newPos = transform.position;
+        var newPos = transform.localPosition;
 
         var moveTarget = relativeMoveTarget + startPos.y;
         var diff = moveTarget - newPos.y;
-        diff = Mathf.Min(Mathf.Abs(diff), Time.deltaTime * scaledMoveSpeed) * Mathf.Sign(diff);
+        diff = Mathf.Min(Mathf.Abs(diff), Time.deltaTime * MoveSpeed) * Mathf.Sign(diff);
 
 
         newPos += Vector3.up * diff;
 
         newPos.y = Mathf.Clamp(newPos.y, min, max);
 
-        transform.position = newPos;
+        transform.localPosition = newPos;
     }
 }

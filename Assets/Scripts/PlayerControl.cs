@@ -30,6 +30,8 @@ public class PlayerControl : MonoBehaviour
     private bool inputEnabled = true;
     private int autoMoveDir;
 
+    private int moveDir;
+
     public void SetPosition(Vector3 position)
     {
         transform.position = position;
@@ -70,11 +72,14 @@ public class PlayerControl : MonoBehaviour
     }
 
 
+    public void SetMoveDir(int dir)
+    {
+        moveDir += (int)Mathf.Sign(dir);
+    }
+
     // Fixed update is called in sync with physics
     private void FixedUpdate()
     {
-        var moveDir = 0;
-
         if (inputEnabled)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -145,6 +150,7 @@ public class PlayerControl : MonoBehaviour
 
         m_Character.Move(delta, false, false);
 
+        moveDir = 0;
 
         //        // read inputs
         //        float h = CrossPlatformInputManager.GetAxis("Horizontal");

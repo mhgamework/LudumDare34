@@ -32,13 +32,13 @@ public class MoveableBox : MonoBehaviour
     private Vector3 lastPos;
     public void FixedUpdate()
     {
-        if ((lastPos - transform.position).magnitude > 0.01)
+        if ((lastPos - transform.localPosition).magnitude > 0.01)
         {
             if (!audio.isPlaying) { audio.Play(); }
         }
        /* else
             audio.Pause();*/
-        lastPos = transform.position;
+        lastPos = transform.localPosition;
 
         var angle = calcAngle();
 
