@@ -33,6 +33,7 @@ public class Teleport : MonoBehaviour
             triggerDelayLeft -= Time.deltaTime;
             chargeAmount = 0;
         }
+        /*
         if (!TeleportingActive)
         {
             chargeAmount = 0;
@@ -42,7 +43,7 @@ public class Teleport : MonoBehaviour
         else
         {
             if (!particleSystem.isPlaying) particleSystem.Play();
-        }
+        }*/
 
 
         meshRenderer.materials[1].color = Color.Lerp(beamStartColor, Color.red, chargeAmount / ChargeTime);
