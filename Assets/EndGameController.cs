@@ -89,7 +89,7 @@ public class EndGameController : MonoBehaviour
 
             playerHeart.ShowHearts();
 
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(2);
 
             princessHeart.ShowHearts();
 
