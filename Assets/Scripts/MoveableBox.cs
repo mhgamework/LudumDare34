@@ -3,55 +3,56 @@ using System.Collections;
 
 public class MoveableBox : MonoBehaviour
 {
-
-    private float CircleRadius;
+    private float circleRadius;
     private float startAngle;
     private Quaternion startRotation;
 
-    private AudioSource audio;
+    private Vector3 Position { get { return transform.position; } set { transform.position = value; } }
+    private Quaternion Rotation { get { return transform.rotation; } set { transform.rotation = value; } }
+
+    private AudioSource audioSource;
+
     // Use this for initialization
     void Start()
     {
-        var p = transform.position;
+        var p = Position;
         p.y = 0;
-        CircleRadius = p.magnitude;
+        circleRadius = p.magnitude;
 
         startAngle = calcAngle();
-        startRotation = transform.localRotation;
+        startRotation = Rotation;
         lastPos = transform.localPosition;
 
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        UpdateAudio();
+    }
 
+    public void FixedUpdate()
+    {
+        var angle = calcAngle();
+
+        Position = new Vector3(circleRadius * Mathf.Cos(angle), Position.y, circleRadius * Mathf.Sin(angle));
+        Rotation = startRotation * Quaternion.AngleAxis(Mathf.Rad2Deg * (startAngle - calcAngle()), Vector3.up);
+    }
+    
+    private float calcAngle()
+    {
+        return Mathf.Atan2(Position.z, Position.x);
     }
 
     private Vector3 lastPos;
-    public void FixedUpdate()
+    private void UpdateAudio()
     {
         if ((lastPos - transform.localPosition).magnitude > 0.01)
         {
-            if (!audio.isPlaying) { audio.Play(); }
+            if (!audioSource.isPlaying) { audioSource.Play(); }
         }
-       /* else
-            audio.Pause();*/
+        /* else
+             audio.Pause();*/
         lastPos = transform.localPosition;
-
-        var angle = calcAngle();
-
-        transform.position = new Vector3(CircleRadius * Mathf.Cos(angle), transform.position.y,
-            CircleRadius * Mathf.Sin(angle));
-
-        transform.localRotation = startRotation * Quaternion.AngleAxis(Mathf.Rad2Deg * (startAngle - calcAngle()), Vector3.up);
-
-
-    }
-
-    private float calcAngle()
-    {
-        return Mathf.Atan2(transform.position.z, transform.position.x);
     }
 }

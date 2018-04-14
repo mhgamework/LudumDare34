@@ -9,6 +9,12 @@ public class Teleport : MonoBehaviour
 
     public float ChargeTime = 2;
 
+    [Tooltip("Duration of the audio clip")]
+    public float AudioChargeTime = 2;
+
+    private float audioPitchModifier { get { return AudioChargeTime / ChargeTime; } }
+
+
     private float chargeAmount = 0;
 
     public MeshRenderer meshRenderer;
@@ -33,29 +39,16 @@ public class Teleport : MonoBehaviour
             triggerDelayLeft -= Time.deltaTime;
             chargeAmount = 0;
         }
-        /*
-        if (!TeleportingActive)
-        {
-            chargeAmount = 0;
-            particleSystem.Stop();
-
-        }
-        else
-        {
-            if (!particleSystem.isPlaying) particleSystem.Play();
-        }*/
-
 
         meshRenderer.materials[1].color = Color.Lerp(beamStartColor, Color.red, chargeAmount / ChargeTime);
 
         if (chargeAmount < 0.001)
         {
             //GetComponent<AudioSource>().Stop();
-
         }
         else
         {
-            
+
             if (!GetComponent<AudioSource>().isPlaying)
             {
                 GetComponent<AudioSource>().Play();
@@ -67,24 +60,7 @@ public class Teleport : MonoBehaviour
 
     public void FixedUpdate()
     {
-        chargeAmount = Mathf.Clamp(chargeAmount - Time.deltaTime , 0, ChargeTime + 0.001f);
-    }
-
-    public IEnumerable<YieldInstruction> blip()
-    {
-        for (;;)
-        {
-            /*var betweenBlip = EasingFunctions.Ease(EasingFunctions.TYPE.In, chargeAmount / ChargeTime, 1, 0.1f);
-
-            while (betweenBlip > 0)
-            {
-                betweenBlip -= Time.deltaTime;
-                meshRenderer.materials[1].color = Color.Lerp(beamStartColor, Color.red, betweenBlip);
-                yield return null;
-            }*/
-
-        }
-        return null;
+        chargeAmount = Mathf.Clamp(chargeAmount - Time.deltaTime, 0, ChargeTime + 0.001f);
     }
 
     public void OnDrawGizmosSelected()
@@ -101,7 +77,7 @@ public class Teleport : MonoBehaviour
         var tp = other.GetComponent<Teleportable>();
         if (!tp) return;
         if (tp.InTeleporter) return;
-        GetComponent<AudioSource>().pitch = 1;
+        GetComponent<AudioSource>().pitch = 1 * audioPitchModifier;
         //tp.InTeleporter = true;
         //tp.TeleportTo(Target.transform.position);
     }
@@ -112,16 +88,17 @@ public class Teleport : MonoBehaviour
         if (!tp) return;
         //chargeAmount = 0;
         if (chargeAmount > 0) // Play in revers, otherwise dont do anything to let sound finish
-            GetComponent<AudioSource>().pitch = -1;
+            GetComponent<AudioSource>().pitch = -1 * audioPitchModifier;
     }
 
     public void OnTriggerStay(Collider other)
     {
         var tp = other.GetComponent<Teleportable>();
-        if (!tp) return;
+        if (!tp)
+            return;
+
+
         chargeAmount += Time.deltaTime * 2; // Times two since we decrement at every fixedupdate 
-
-
 
         if (chargeAmount > ChargeTime)
         {
