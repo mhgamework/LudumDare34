@@ -25,7 +25,8 @@ public class EndGameController : MonoBehaviour
     [SerializeField]
     private GameObject QuitHelpText = null;
 
-    private float curtainTargetY;
+    [SerializeField]
+    private Transform curtainTargetTransform;
 
 
     [SerializeField]
@@ -33,18 +34,29 @@ public class EndGameController : MonoBehaviour
 
     [SerializeField]
     private float princessTopY = 31.8f;
+    [SerializeField]
+    private Transform walkToTransform;
+
+    [SerializeField]
+    private RobotAnimator robotAnimator;
+
+
+    public bool DebugTest = false;
+
 
     private Vector3 PrincessTargetPos = new Vector3();
     // Use this for initialization
     void Start()
     {
         StartCoroutine(doEndGameScript().GetEnumerator());
-        curtainTargetY = curtain.position.y + curtainTargetRelativeY;
     }
 
     private IEnumerable<YieldInstruction> doEndGameScript()
     {
-        for (;;)
+        yield return new WaitForSeconds(1f);
+        curtain.gameObject.SetActive(false);
+
+        for (; ; )
         {
             while (!isPlayerAtTop()) yield return null;
             disableUserInput();
@@ -53,15 +65,27 @@ public class EndGameController : MonoBehaviour
                 stepMovePlayerToCenter();
                 yield return null;
             }
+            player.SetMoveDir(0);
             player.SetAutoMoveDir(0);
 
-            while (!isPrincessAtTop()) yield return null;
+            if (!DebugTest)
+            {
+                while (!isPrincessAtTop())
+                {
+                    yield return null;
+                }
+            }
+
+
             Debug.Log("Hearts");
 
             QuitHelpText.SetActive(false);
 
             yield return new WaitForSeconds(0.5f);
 
+            robotAnimator.PlayWalk();
+            yield return StartCoroutine(WalkToPrincess());
+            robotAnimator.PlayIdle();
 
             playerHeart.ShowHearts();
 
@@ -71,13 +95,15 @@ public class EndGameController : MonoBehaviour
 
             yield return new WaitForSeconds(5);
 
-            while (stepCurtain()) { yield return null; }
+            
+            curtain.gameObject.SetActive(true);
+            yield return StartCoroutine(stepCurtain());
 
             yield return new WaitForSeconds(4);
 
-            StartCoroutine("UpdateQuitHelpText");
+            StartCoroutine(UpdateQuitHelpText());
 
-            for (;;)
+            for (; ; )
             {
                 stepFadeOutMusic();
                 if (Input.anyKeyDown) Application.Quit();
@@ -88,7 +114,34 @@ public class EndGameController : MonoBehaviour
         }
     }
 
-    IEnumerator UpdateQuitHelpText()
+    private IEnumerator WalkToPrincess()
+    {
+        player.enabled = false;
+        player.GetComponent<Rigidbody>().useGravity = false;
+
+        var start = player.transform.position;
+        var end = walkToTransform.position;
+
+        var start_r = player.transform.rotation;
+        var end_r = walkToTransform.transform.rotation;
+
+        var elapsed = 0f;
+        var total_time = 5f;
+
+        while (elapsed < total_time)
+        {
+            player.transform.position = EasingFunctions.Ease(EasingFunctions.TYPE.InOut, elapsed / total_time, start, end);
+
+            if (elapsed < total_time * 0.1f)
+                player.transform.rotation = EasingFunctions.Ease(EasingFunctions.TYPE.InOut, elapsed / (total_time * 0.1f), start_r, end_r);
+
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+    }
+
+
+    private IEnumerator UpdateQuitHelpText()
     {
         yield return new WaitForSeconds(2f);
         QuitHelpText.SetActive(true);
@@ -99,22 +152,20 @@ public class EndGameController : MonoBehaviour
         //throw new System.NotImplementedException();
     }
 
-    private bool stepCurtain()
+    private IEnumerator stepCurtain()
     {
-        var pos = curtain.transform.position;
-        var targetY = curtainTargetY;
+        var start = curtain.transform.position.y;
+        var end = curtainTargetTransform.position.y;
 
-        if (Mathf.Abs(pos.y - targetY) < 0.001) return false;
-
-
-        var diff = targetY - pos.y;
-
-        pos.y += Mathf.Sign(diff) * Mathf.Min(Mathf.Abs(diff), Time.deltaTime * curtainSpeed);
-
-        curtain.transform.position = pos;
-        return true;
-
-
+        var elapsed = 0f;
+        var total_time = 2f;
+        while (elapsed < total_time)
+        {
+            var new_y = EasingFunctions.Ease(EasingFunctions.TYPE.OutBounce, elapsed / total_time, start, end);
+            curtain.transform.position = new Vector3(curtain.transform.position.x, new_y, curtain.transform.position.z);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
     }
 
 
@@ -128,30 +179,28 @@ public class EndGameController : MonoBehaviour
         return princess.transform.position.y > princessTopY;
     }
 
-    private bool isPlayerAtCenter()
-    {
-        return player.transform.position.x < hardcodedTargetPlayerX; // Hardcoded!
-    }
+
 
     private void stepMovePlayerToCenter()
     {
         player.SetAutoMoveDir(1);
-        /*var z = player.transform.position.z;
-        player.SetAutoMoveDir((int)Mathf.Sign(z));*/
     }
+
+
+    private bool isPlayerAtCenter()
+    {
+        return playerAtCenter;
+    }
+    public void OnPlayerAtCenter()
+    {
+        playerAtCenter = true;
+    }
+    private bool playerAtCenter = false;
 
     private bool isPlayerAtTop()
     {
         return playerAtTop;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
     public void OnPlayerAtTop()
     {
         playerAtTop = true;
