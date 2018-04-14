@@ -242,7 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   TeleportingActive: 1
-  ChargeTime: 2
+  ChargeTime: 2.5
   AudioChargeTime: 1.8
   meshRenderer: {fileID: 2396770}
   particleSystem: {fileID: 19886170}

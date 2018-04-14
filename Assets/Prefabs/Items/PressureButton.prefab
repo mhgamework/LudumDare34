@@ -5,14 +5,14 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 422466}
-  - 65: {fileID: 6502632}
-  - 114: {fileID: 11421574}
-  - 114: {fileID: 11462142}
-  - 114: {fileID: 11495482}
-  - 82: {fileID: 8270738}
+  - component: {fileID: 422466}
+  - component: {fileID: 6502632}
+  - component: {fileID: 11421574}
+  - component: {fileID: 11462142}
+  - component: {fileID: 11495482}
+  - component: {fileID: 8270738}
   m_Layer: 0
   m_Name: PressureButton
   m_TagString: Untagged
@@ -25,11 +25,11 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Component:
-  - 4: {fileID: 446890}
-  - 33: {fileID: 3318066}
-  - 23: {fileID: 2341384}
+  - component: {fileID: 446890}
+  - component: {fileID: 3318066}
+  - component: {fileID: 2341384}
   m_Layer: 0
   m_Name: PressureButton
   m_TagString: Untagged
@@ -50,6 +50,7 @@ Transform:
   - {fileID: 446890}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &446890
 Transform:
   m_ObjectHideFlags: 1
@@ -62,6 +63,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 422466}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &2341384
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -71,22 +73,30 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: c51dc69407feedf4db66d683ffcdcc55, type: 2}
-  m_SubsetIndices: 
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
   m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
   m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3318066
 MeshFilter:
@@ -118,11 +128,12 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7eebbc2bf3e9d6b4dbcd74da85a3678d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
+  SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -135,12 +146,14 @@ AudioSource:
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: 1
+    - serializedVersion: 2
+      time: 1
       value: 0
       inSlope: 0
       outSlope: 0
@@ -151,7 +164,8 @@ AudioSource:
   panLevelCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -162,7 +176,8 @@ AudioSource:
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 0
       inSlope: 0
       outSlope: 0
@@ -173,7 +188,8 @@ AudioSource:
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
-    - time: 0
+    - serializedVersion: 2
+      time: 0
       value: 1
       inSlope: 0
       outSlope: 0
@@ -225,6 +241,8 @@ MonoBehaviour:
     m_TypeName: PressurePlate+OnPressurePlateDeactivatedEventHandler, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   MeshTransform: {fileID: 446890}
+  PlaySoundOnActivated: 1
+  PlaySoundOnDeactivated: 1
 --- !u!114 &11462142
 MonoBehaviour:
   m_ObjectHideFlags: 1

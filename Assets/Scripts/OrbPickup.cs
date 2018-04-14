@@ -17,17 +17,18 @@ public class OrbPickup : MonoBehaviour
     IEnumerator GetCollected()
     {
         pickupAudio.Play();
-        float target_height = CenterStairController.Get.ConsumeOrb();
+
+        CenterStairController.Get.ConsumeOrb();
+
+        var target_transform = FindObjectOfType<RobotGirlController>().transform;
 
         var the_transform = GetComponent<Transform>();
-        var start = the_transform.localPosition;
-        var target = new Vector3(0, target_height, 0);
+        var start = the_transform.position;
+        var target =target_transform.position;
         var elapsed = 0f;
-        //var audioStart = backgroundAudio.volume;
         while (elapsed < CollectAnimationTime)
         {
-            //backgroundAudio.volume = EasingFunctions.Ease(EaseType, elapsed/CollectAnimationTime, audioStart, 0);
-            the_transform.localPosition = EasingFunctions.Ease(EaseType, elapsed / CollectAnimationTime, start, target);
+            the_transform.position = EasingFunctions.Ease(EaseType, elapsed / CollectAnimationTime, start, target);
             elapsed += Time.deltaTime;
             yield return null;
         }

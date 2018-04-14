@@ -53,6 +53,8 @@ public class CenterStairController : MonoBehaviour
 
     void Start()
     {
+        CurrentHeight = 0f;
+
         if (instance != null && instance != this) throw new InvalidOperationException();
         instance = this;
 
@@ -72,6 +74,11 @@ public class CenterStairController : MonoBehaviour
                     material.color = new Color(material.color.r, material.color.g, material.color.b, 0f);
                 }
             }
+        }
+
+        foreach (var height_def in OrbStairHeights)
+        {
+            height_def.SetOffset(transform.position.y);//adjust height definitions to correct for initial level displacement
         }
 
         TotalOrbCount = FindObjectsOfType<OrbPickup>().Count();
@@ -102,11 +109,11 @@ public class CenterStairController : MonoBehaviour
 
 
             var fraction = (float)(orb_count - minOrbCount) / (maxOrbCount - minOrbCount);
-            var max_height = Mathf.Lerp(OrbStairHeights[i].Height, OrbStairHeights[i + 1].Height, fraction);
+            var max_height = Mathf.Lerp(OrbStairHeights[i].GetHeight(), OrbStairHeights[i + 1].GetHeight(), fraction);
 
             for (int j = 0; j < ChildTransforms.Count; j++)
             {
-                if (ChildTransforms[j].position.y <= max_height)
+                if (ChildTransforms[j].localPosition.y <= max_height)
                     renderers.Add(ChildRenderers[j]);
             }
         }
@@ -190,7 +197,19 @@ public class CenterStairController : MonoBehaviour
     private class OrbCountHeightTuple
     {
         public int OrbCount;
-        public float Height;
+        [SerializeField]
+        private float Height;
+        private float offset = 0f;
+
+        public float GetHeight()
+        {
+            return Height + offset;
+        }
+
+        public void SetOffset(float offset)
+        {
+            this.offset = offset;
+        }
     }
 
     [SerializeField]
