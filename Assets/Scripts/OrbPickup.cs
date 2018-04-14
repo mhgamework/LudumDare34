@@ -9,8 +9,6 @@ public class OrbPickup : MonoBehaviour
         {
             IsCollected = true;
             StartCoroutine("GetCollected");
-            
-            
         }
     }
 
@@ -20,15 +18,14 @@ public class OrbPickup : MonoBehaviour
 
         CenterStairController.Get.ConsumeOrb();
 
-        var target_transform = FindObjectOfType<RobotGirlController>().transform;
+        var target_transform = FindObjectOfType<RobotGirlController>().RobotGirlBodyTransform;
 
         var the_transform = GetComponent<Transform>();
         var start = the_transform.position;
-        var target =target_transform.position;
         var elapsed = 0f;
         while (elapsed < CollectAnimationTime)
         {
-            the_transform.position = EasingFunctions.Ease(EaseType, elapsed / CollectAnimationTime, start, target);
+            the_transform.position = EasingFunctions.Ease(EaseType, elapsed / CollectAnimationTime, start, target_transform.position);
             elapsed += Time.deltaTime;
             yield return null;
         }

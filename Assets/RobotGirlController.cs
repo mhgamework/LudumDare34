@@ -4,6 +4,8 @@ using System.Collections;
 
 public class RobotGirlController : MonoBehaviour
 {
+    public Transform RobotGirlBodyTransform;
+
     private float startHeight;
 
     void Start()

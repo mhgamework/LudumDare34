@@ -27,7 +27,7 @@ public class CameraBackgroundColor : MonoBehaviour
     void Update()
     {
         var color = GetColorFromHeight(ColorTransform.localPosition.y + offset);
-        currentColor = Color.Lerp(currentColor, color, 0.1f);
+        currentColor = Color.Lerp(currentColor, color, Time.deltaTime);
 
         TheCamera.backgroundColor = currentColor;
         if (AffectFog)
